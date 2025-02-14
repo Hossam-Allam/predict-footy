@@ -24,6 +24,7 @@
 
   <body>
     <div class="header">
+      <%= flash[:notice] = "Account successfully created..."%>
       <%= button_to "Sign in with GitHub", "/auth/github", method: :post, data: { turbo: false } %>
     </div>
     <%= yield %>
