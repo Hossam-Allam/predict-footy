@@ -1,0 +1,70 @@
+.holder {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-signup {
+    background-color: rgb(36, 35, 35);
+    padding: 30px;
+
+    height: auto;
+    min-height: auto;
+
+    border: solid rgb(114, 69, 69) 1px;
+    border-radius: 20px;
+}
+
+span.in {
+    color: rgb(114, 69, 69)
+}
+
+.login-button {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: none;
+    color: white;
+    background-color: rgb(66, 94, 66);
+}
+
+input {
+    border-radius: 3px;
+    padding: 5px;
+    border: none;
+}
+
+.gh {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: #7f858b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: system-ui;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.gh:hover {
+    background: #2d3339;
+}
+
+.title {
+    margin-top: 0px;
+}
+
+h4 {
+    margin-bottom: 0px;
+}
+
+.title i {
+    text-decoration: underline;
+    color: rgb(114, 69, 69)
+}

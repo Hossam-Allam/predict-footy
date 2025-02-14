@@ -8,3 +8,14 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+@font-face {
+    font-family: "Segoe UI";
+    src: url("/fonts/segoe-ui.ttf") format("truetype");
+}
+
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
