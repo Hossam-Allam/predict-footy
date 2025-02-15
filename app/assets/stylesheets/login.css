@@ -73,3 +73,9 @@ h4 {
     text-decoration: underline;
     color: rgb(114, 69, 69)
 }
+
+@media only screen and (max-width: 450px) {
+    .holder {
+        flex-direction: column;
+    }
+}
