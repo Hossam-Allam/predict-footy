@@ -33,6 +33,11 @@ span.in {
     background-color: rgb(66, 94, 66);
 }
 
+.login-button:hover {
+    background-color: rgb(115, 158, 115);
+    cursor: pointer;
+}
+
 input {
     border-radius: 3px;
     padding: 5px;
