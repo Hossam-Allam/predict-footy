@@ -1,0 +1,30 @@
+<h1>Upcoming Matches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date & Time</th>
+      <th>Home Team</th>
+      <th>Away Team</th>
+      <th>Status</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.scheduled_at.strftime("%b %d, %Y %H:%M") %></td>
+        <td><%= match.home %></td>
+        <td><%= match.away %></td>
+        <td><%= match.status %></td>
+        <td>
+          <% if match.status == "finished" %>
+            <%= match.home_goals %> - <%= match.away_goals %>
+          <% else %>
+            TBD
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
