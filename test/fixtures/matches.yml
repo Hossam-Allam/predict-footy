@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  external_id: 1
+  season: 1
+  matchday: 1
+  scheduled_at: 2025-02-17 21:48:20
+  home: MyString
+  away: MyString
+  home_goals: 1
+  away_goals: 1
+  status: MyString
+
+two:
+  external_id: 1
+  season: 1
+  matchday: 1
+  scheduled_at: 2025-02-17 21:48:20
+  home: MyString
+  away: MyString
+  home_goals: 1
+  away_goals: 1
+  status: MyString

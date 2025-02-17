@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_14_191504) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_17_184820) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "external_id"
+    t.integer "season"
+    t.integer "matchday"
+    t.datetime "scheduled_at"
+    t.string "home"
+    t.string "away"
+    t.integer "home_goals"
+    t.integer "away_goals"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
