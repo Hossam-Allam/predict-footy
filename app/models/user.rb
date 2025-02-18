@@ -3,6 +3,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [ :github ]
 
+  has_many :created_leagues, class_name: "League", foreign_key: "owner_id"
+  has_many :league_memberships, dependent: :destroy
+  has_many :leagues, through: :league_memberships
+
   validates :email, uniqueness: { allow_blank: true }
   validates :name, presence: true
 
