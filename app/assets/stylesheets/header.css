@@ -38,6 +38,10 @@
     text-decoration: none;
 }
 
+.header a:hover {
+    color: rgb(155, 164, 232);
+}
+
 .user-name {
     margin-left: 10px;
     margin-right: 10px;
