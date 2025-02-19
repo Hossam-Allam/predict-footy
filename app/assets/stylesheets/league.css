@@ -1,0 +1,25 @@
+.Lindex-title {
+    text-align: center;
+}
+
+.leagues-container {
+    display: grid;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.league {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 2px solid rgb(126, 124, 124);
+    padding: 20px;
+    align-items: center;
+}
+
+.league-name,
+.league-points,
+.league-members {
+    text-align: center;
+}

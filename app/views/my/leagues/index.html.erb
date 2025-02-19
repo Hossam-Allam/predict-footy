@@ -1,7 +1,19 @@
 <%= render "shared/header" %>
-<h1>My Leagues</h1>
-<% unless @leagues.empty? %>
-  <% @leagues.each do |league| %>
-    <%= league.name %>
+
+<h1 class="Lindex-title">My Leagues</h1>
+
+<div class="leagues-container">
+  <% unless @leagues.empty? %>
+    <% @leagues.each do |league| %>
+      <div class="league">
+        <div class="league-name"><%= link_to league.name, my_league_path(league) %></div>
+        <div class="league-points">
+          <% if (membership = @memberships_by_league[league.id]) %>
+            <%= membership.points %> points
+          <% end %>
+        </div>
+        <div class="league-members"><%= league.league_memberships.count%> Members</div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

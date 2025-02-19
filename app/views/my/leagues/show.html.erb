@@ -1,2 +1,9 @@
-<h1>My::Leagues#show</h1>
-<p>Find me in app/views/my/leagues/show.html.erb</p>
+<%= render "shared/header"%>
+<h1><%= @league.name %></h1>
+
+<% @league.league_memberships.each do |membership| %>
+  <p>
+    <%= membership.user.name %>: <%= membership.points %> points
+  </p>
+<% end %>
+

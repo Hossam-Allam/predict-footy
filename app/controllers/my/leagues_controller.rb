@@ -3,6 +3,7 @@ class My::LeaguesController < ApplicationController
 
   def index
     @leagues = current_user.leagues
+    @memberships_by_league = current_user.league_memberships.index_by(&:league_id)
   end
 
   def show
