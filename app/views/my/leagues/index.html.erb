@@ -1,0 +1,7 @@
+<%= render "shared/header" %>
+<h1>My Leagues</h1>
+<% unless @leagues.empty? %>
+  <% @leagues.each do |league| %>
+    <%= league.name %>
+  <% end %>
+<% end %>

@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: { allow_blank: true }
   validates :name, presence: true
 
+  after_create :join_worldwide_league
+
+
   def self.from_omniauth(auth)
     user = User.find_or_initialize_by(provider: auth.provider, uid: auth.uid)
 
@@ -29,5 +32,15 @@ class User < ApplicationRecord
 
     user.save!
     user
+  end
+
+  private
+
+  def join_worldwide_league
+    worldwide = League.find_by(name: "Worldwide")
+    if worldwide.present?
+      # Creates the membership unless one already exists.
+      league_memberships.find_or_create_by!(league: worldwide)
+    end
   end
 end
