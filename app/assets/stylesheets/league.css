@@ -77,3 +77,18 @@
     justify-content: center;
     align-items: center;
 }
+
+.name-input {
+    background-color: #a09b9b;
+    border-color: #cccccc;
+    color: #333333;
+}
+
+.create-league {
+    background-color: rgb(138, 176, 138);
+}
+
+.create-league:hover {
+    cursor: pointer;
+    background-color: aquamarine;
+}

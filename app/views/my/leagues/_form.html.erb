@@ -1,0 +1,10 @@
+<%= form_with(model: league, url: my_leagues_path) do |f| %>
+    
+    <%= f.label :name, "Enter League Name" %>
+    <%= f.text_field :name, class: "name-input" %>
+    
+    
+    
+    <%= f.submit "Create League", class: "create-league" %>
+    
+<% end %>

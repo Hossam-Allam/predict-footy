@@ -5,11 +5,11 @@
     <%= form_with model: @league, url: my_leagues_path, local: true do |f| %>
     
         <%= f.label :name, "League Name" %>
-        <%= f.text_field :name, class: "form-control" %>
+        <%= f.text_field :name, class: "name-input" %>
     
     
     
-        <%= f.submit "Create League", class: "btn btn-primary" %>
+        <%= f.submit "Create League", class: "create-league" %>
     
     <% end %>
 </div>
