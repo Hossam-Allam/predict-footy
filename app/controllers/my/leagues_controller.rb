@@ -17,13 +17,18 @@ class My::LeaguesController < ApplicationController
 
   def create
     @league = current_user.created_leagues.build(league_params)
-      if @league.save
 
+    respond_to do |format|
+      if @league.save
         current_user.league_memberships.create!(league: @league)
-        redirect_to my_leagues_path, notice: "League created successfully."
+
+        format.html { redirect_to my_leagues_path, notice: "League created successfully." }
+        format.turbo_stream
       else
-        render :new
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render :form_update }
       end
+    end
   end
 
   private
