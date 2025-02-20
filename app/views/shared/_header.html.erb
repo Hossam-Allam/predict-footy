@@ -1,6 +1,8 @@
 
 <div class="header">
-  <h3 class="header-brand">Footy<i>Predict</i></h3>
+  <%= link_to root_path do %>
+    <h3 class="header-brand">Footy<i>Predict</i></h3>
+  <% end %>
   <div class="header-links">
     <% if user_signed_in? %>
       <%= link_to "My Leagues", my_leagues_index_path, class: "nav-link" %>
