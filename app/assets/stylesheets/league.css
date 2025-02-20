@@ -69,3 +69,11 @@
 .member-name {
     font-weight: bold;
 }
+
+/* new*/
+
+.new-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

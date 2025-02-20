@@ -1,5 +1,17 @@
-<h1>Create a league</h1>
+<%= render "shared/header" %>
+<h1 class="Lindex-title">Create a league</h1>
 
-<%= render "form" %>
+<div class="new-form">
+    <%= form_with model: @league, url: my_leagues_path, local: true do |f| %>
+    
+        <%= f.label :name, "League Name" %>
+        <%= f.text_field :name, class: "form-control" %>
+    
+    
+    
+        <%= f.submit "Create League", class: "btn btn-primary" %>
+    
+    <% end %>
+</div>
 
 
