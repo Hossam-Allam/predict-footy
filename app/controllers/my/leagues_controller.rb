@@ -8,6 +8,7 @@ class My::LeaguesController < ApplicationController
 
   def show
     @league = current_user.leagues.find(params[:id])
+    @memberships = @league.league_memberships.order(points: :desc)
   end
 
   def new

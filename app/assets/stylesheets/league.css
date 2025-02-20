@@ -37,3 +37,35 @@
 .league:hover {
     background-color: antiquewhite;
 }
+
+/* show page */
+
+.code {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.code-box {
+    border: 2px solid rgb(179, 179, 243);
+    border-radius: 5px;
+}
+
+.standings {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.standings .league-membership {
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+}
+
+.member-name {
+    font-weight: bold;
+}
