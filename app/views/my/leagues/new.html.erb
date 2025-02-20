@@ -1,2 +1,14 @@
-<h1>My::Leagues#new</h1>
-<p>Find me in app/views/my/leagues/new.html.erb</p>
+<h1>Create a league</h1>
+
+<%= form_with model: @league, url: my_leagues_path, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "League Name" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.submit "Create League", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+

@@ -19,10 +19,16 @@ class My::LeaguesController < ApplicationController
     @league = current_user.created_leagues.build(league_params)
       if @league.save
 
-        current_user.league_memberships.create!(league: @league) # creates the league and adds the user to it
+        current_user.league_memberships.create!(league: @league)
         redirect_to my_leagues_path, notice: "League created successfully."
       else
         render :new
       end
+  end
+
+  private
+
+  def league_params
+    params.require(:league).permit(:name)
   end
 end
