@@ -23,3 +23,17 @@
 .league-members {
     text-align: center;
 }
+
+.league-name>a {
+    color: rgb(162, 166, 198);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.league-name>a:hover {
+    color: rgb(155, 164, 232);
+}
+
+.league:hover {
+    background-color: antiquewhite;
+}
