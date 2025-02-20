@@ -1,8 +1,8 @@
 <%= render "shared/header" %>
-<h1 class="Mindex-title">Upcoming Matches</h1>
+<h1 class="Mindex-title">Matches</h1>
 
 <div class="matches-container">
-  <% @matches.each do |match| %>
+  <% @upcoming_matches.each do |match| %>
     <div class="match">
       <%= team_logo(match.home) %>
       <h3 class="team"><%= match.home %></h3>
@@ -14,5 +14,5 @@
 </div>
 
 <div class="pagination">
-  <%= paginate @matches %>
+  <%= paginate @upcoming_matches %>
 </div>
