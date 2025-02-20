@@ -11,7 +11,7 @@ class MatchFetcher
   end
 
   def fetch_matches
-    response = self.class.get("/competitions/PL/matches?status=SCHEDULED", headers: @headers)
+    response = self.class.get("/competitions/PL/matches", headers: @headers)
 
     if response.success?
       matches = response.parsed_response["matches"]
