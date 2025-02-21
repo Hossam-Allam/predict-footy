@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :matches, only: [ :index, :show ] do
+    resources :predictions, only: [ :new, :create, :edit, :update, :show ]
+  end
+
   root "matches#index"
 end
