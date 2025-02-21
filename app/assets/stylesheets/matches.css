@@ -81,3 +81,20 @@
         /* Move date to top on mobile */
     }
 }
+
+/* predictions */
+
+.match.correct:hover {
+    background-color: #b4dbb5;
+
+}
+
+.match.close:hover {
+    background-color: #ded8a2;
+
+}
+
+.match.incorrect:hover {
+    background-color: #ce928e;
+
+}
