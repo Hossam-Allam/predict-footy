@@ -1,18 +1,40 @@
 <%= render "shared/header" %>
 <h1 class="Mindex-title">Matches</h1>
 
+<div class="match-filter-buttons">
+  <%= link_to "Upcoming Matches", root_path(match_type: "upcoming"), class: "btn btn-primary #{params[:match_type] != 'finished' ? 'active' : ''}" %>
+  <%= link_to "Finished Matches", root_path(match_type: "finished"), class: "btn btn-primary #{params[:match_type] == 'finished' ? 'active' : ''}" %>
+</div>
+
 <div class="matches-container">
-  <% @upcoming_matches.each do |match| %>
-    <div class="match">
-      <%= team_logo(match.home) %>
-      <h3 class="team"><%= match.home %></h3>
-      <p class="date"><%= match.scheduled_at.strftime("%b %d, %Y") %></p>
-      <h3 class="team"><%= match.away %></h3>
-      <%= team_logo(match.away) %>
-    </div>
+  <% if params[:match_type] == 'finished' %>
+    <% @finished_matches.each do |match| %>
+      <div class="match">
+        <%= team_logo(match.home) %>
+        <h3 class="team"><%= match.home %></h3>
+        <p class="score"><%= match.home_goals %> - <%= match.away_goals %></p>
+        <h3 class="team"><%= match.away %></h3>
+        <%= team_logo(match.away) %>
+      </div>
+    <% end %>
+  <% else %>
+    <% @upcoming_matches.each do |match| %>
+      <div class="match">
+        <%= team_logo(match.home) %>
+        <h3 class="team"><%= match.home %></h3>
+        <p class="date"><%= match.scheduled_at.strftime("%b %d, %Y") %></p>
+        <h3 class="team"><%= match.away %></h3>
+        <%= team_logo(match.away) %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
 <div class="pagination">
-  <%= paginate @upcoming_matches %>
+  <% if params[:match_type] == 'finished' %>
+    <%= paginate @finished_matches %>
+  <% else %>
+    <%= paginate @upcoming_matches %>
+  <% end %>
 </div>
+
