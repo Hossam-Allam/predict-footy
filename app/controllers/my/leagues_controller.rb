@@ -25,9 +25,22 @@ class My::LeaguesController < ApplicationController
 
         redirect_to my_leagues_path, notice: "League created successfully."
       else
-        render :new, status: :unprocessable_entity
+        redirect_to my_leagues_path, status: :unprocessable_entity
       end
   end
+
+  def join
+    league_code = params[:league_code]
+    league = League.find_by(unique_code: league_code)
+    if league
+      current_user.league_memberships.find_or_create_by!(league: league)
+      redirect_to my_leagues_path, notice: "Successfully joined the league."
+    else
+      flash[:alert] = "Invalid league code."
+      redirect_to my_leagues_path
+    end
+  end
+
 
   private
 

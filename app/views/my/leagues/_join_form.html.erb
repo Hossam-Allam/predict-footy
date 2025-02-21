@@ -1,0 +1,8 @@
+<%= form_with url: join_league_my_leagues_path, method: :post, local: true do |f| %>
+  
+    <%= f.label :league_code, "Join a League" %>
+    <%= f.text_field :league_code, placeholder: "Enter league code", class: "name-input" %>
+  
+    <%= f.submit "Join League", class: "create-league" %>
+  
+<% end %>

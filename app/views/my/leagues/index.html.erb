@@ -2,7 +2,10 @@
 
 <h1 class="Lindex-title">My Leagues</h1>
 <%= turbo_frame_tag "leagues_frame" do %>
-  <div class="new-form"><%= render "form", league: League.new %></div>
+  <div class="league-form-container">
+    <div class="new-form"><%= render "form", league: League.new %></div>
+    <div class="new-form"><%= render "join_form" %></div>
+  </div>
   <div class="leagues-container">
     <% unless @leagues.empty? %>
       <% @leagues.each do |league| %>

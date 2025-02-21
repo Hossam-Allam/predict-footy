@@ -92,3 +92,43 @@
     cursor: pointer;
     background-color: aquamarine;
 }
+
+/*forms*/
+
+.league-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.new-form {
+    width: 100%;
+    max-width: 600px;
+
+    margin-bottom: 20px;
+
+}
+
+.new-form form {
+    display: flex;
+    align-items: center;
+}
+
+.new-form form label {
+    width: 150px;
+
+}
+
+.new-form form .name-input {
+    flex: 1;
+
+    margin: 0 10px;
+
+}
+
+.new-form form .create-league {
+    width: 150px;
+
+}
