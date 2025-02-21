@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_18_175254) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_21_171656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -49,6 +49,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_175254) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "predictions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "match_id", null: false
+    t.integer "home_score"
+    t.integer "away_score"
+    t.integer "points_awarded"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_predictions_on_match_id"
+    t.index ["user_id", "match_id"], name: "index_predictions_on_user_id_and_match_id", unique: true
+    t.index ["user_id"], name: "index_predictions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,4 +80,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_175254) do
   add_foreign_key "league_memberships", "leagues"
   add_foreign_key "league_memberships", "users"
   add_foreign_key "leagues", "users", column: "owner_id"
+  add_foreign_key "predictions", "matches"
+  add_foreign_key "predictions", "users"
 end
