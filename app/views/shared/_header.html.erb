@@ -5,7 +5,7 @@
   <% end %>
   <div class="header-links">
     <% if user_signed_in? %>
-      <%= link_to "My Leagues", my_leagues_index_path, class: "nav-link" %>
+      <%= link_to "My Leagues", my_leagues_path, class: "nav-link" %>
       <span class="user-name">Hello, <%= current_user.name %></span>
       <%= link_to "Sign Out", destroy_user_session_path, 
                   class: "nav-link",
