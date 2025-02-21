@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :created_leagues, class_name: "League", foreign_key: "owner_id"
   has_many :league_memberships, dependent: :destroy
   has_many :leagues, through: :league_memberships
+  has_many :predictions, dependent: :destroy
 
   validates :email, uniqueness: { allow_blank: true }
   validates :name, presence: true
