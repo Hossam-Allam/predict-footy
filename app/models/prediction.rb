@@ -9,8 +9,8 @@ class Prediction < ApplicationRecord
 
     actual_home = match.home_goals.to_i
     actual_away = match.away_goals.to_i
-    predicted_home = predicted_home_score.to_i
-    predicted_away = predicted_away_score.to_i
+    predicted_home = home_score.to_i
+    predicted_away = away_score.to_i
 
     if predicted_home == actual_home && predicted_away == actual_away
       self.points_awarded = 3

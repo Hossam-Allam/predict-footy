@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+<h1 class="Lindex-title">
+  <% if @prediction.persisted? %>
+    Edit Your Prediction
+    
+  <% else %>
+    Make Your Prediction
+  <% end %>
+</h1>
+
+<%= render "form" %>
+

@@ -64,6 +64,11 @@
     color: rgb(226, 178, 178);
 }
 
+.match-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media (max-width: 600px) {
     .match {
         grid-template-columns: 1fr;

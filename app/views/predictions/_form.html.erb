@@ -1,0 +1,13 @@
+<%= form_with model: [@match, @prediction], local: true, class: "pred-form" do |f| %>
+  
+  <div class="pred-input">
+      <%= f.label :home_score, team_logo(@prediction.match.home) %>
+      <%= f.number_field :home_score, class: "form-control" %>
+        -
+      
+      <%= f.number_field :away_score, class: "form-control" %>
+      <%= f.label :away_score, team_logo(@prediction.match.away) %>
+  </div>
+
+  <%= f.submit @prediction.persisted? ? "Update" : "Submit", class: "pred-btn" %>
+<% end %>
