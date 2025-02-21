@@ -2,9 +2,6 @@ class PredictionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_match
 
-  def index
-    @predictions = Prediction.find_by(user: current_user)
-  end
 
 
   def new
