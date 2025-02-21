@@ -39,6 +39,31 @@
     background-color: antiquewhite;
 }
 
+.score {
+    font-weight: bold;
+}
+
+.match-filter-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.match-filter-buttons>a {
+    color: rgb(162, 166, 198);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.upcoming-matches-button:hover {
+    color: rgb(185, 226, 178);
+}
+
+.finished-matches-button:hover {
+    color: rgb(226, 178, 178);
+}
+
 @media (max-width: 600px) {
     .match {
         grid-template-columns: 1fr;
