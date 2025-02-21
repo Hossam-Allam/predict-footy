@@ -7,10 +7,11 @@ Rails.application.routes.draw do
         post "join", to: "leagues#join", as: :join_league
       end
     end
+    resources :predictions, only: [ :index ]
   end
 
   resources :matches, only: [ :index, :show ] do
-    resources :predictions, only: [ :new, :create, :update, :index ]
+    resources :predictions, only: [ :new, :create, :update ]
   end
 
   root "matches#index"
