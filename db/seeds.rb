@@ -7,6 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+owner = User.find_or_create_by!(id: 1) do |user|
+  user.name = "Default Owner"
+  user.email = "owner@example.com"
+  user.password = "securepassword"
+end
+
+# Create or find the league
 worldwide = League.find_or_create_by!(name: "Worldwide") do |league|
-  league.owner_id = 1
+  league.owner = owner
 end
