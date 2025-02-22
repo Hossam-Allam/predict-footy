@@ -27,6 +27,10 @@ class Prediction < ApplicationRecord
     end
   end
 
+  def self.evaluate_all
+    all.find_each(&:evaluate)
+  end
+
   private
 
   def outcome_correct?(predicted_home, predicted_away, actual_home, actual_away)
