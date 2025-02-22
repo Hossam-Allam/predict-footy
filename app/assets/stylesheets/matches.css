@@ -64,6 +64,10 @@
     color: rgb(226, 178, 178);
 }
 
+.predictions-button:hover {
+    color: rgb(227, 227, 160)
+}
+
 .match-link {
     text-decoration: none;
     color: inherit;
