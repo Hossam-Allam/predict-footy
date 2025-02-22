@@ -29,7 +29,7 @@ job_type :rbenv_runner, %Q{
 }
 
 # Then use the custom job type for your tasks
-every 2.minutes do
+every 5.minutes do
   rbenv_runner "MatchFetcher.new.fetch_matches"  # Changed from 'runner' to 'rbenv_runner'
 end
 
