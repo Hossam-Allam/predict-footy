@@ -7,7 +7,7 @@ development:
   <<: *default
   database: predict_footy_development
   host: localhost
-  username: hossam  # Keep your local dev credentials
+  username: hossam
   password: <%= ENV['DATABASE_PASSWORD'] %>
 
 test:
