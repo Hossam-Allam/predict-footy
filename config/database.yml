@@ -1,19 +1,2 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-  database: predict_footy_development
-  host: localhost
-  username: hossam
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-
-test:
-  <<: *default
-  database: predict_footy_test
-
 production:
-  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
