@@ -18,13 +18,21 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+# config/schedule.rb
 set :output, "log/cron.log"
 set :environment, ENV["RAILS_ENV"] || "development"
 
-every 15.minutes do
-  runner "MatchFetcher.new.fetch_matches"
+# Define the custom job type FIRST
+job_type :rbenv_runner, %Q{
+  eval "$(rbenv init -)";
+  cd :path && RAILS_ENV=:environment bundle exec rails runner ":task" :output
+}
+
+# Then use the custom job type for your tasks
+every 2.minutes do
+  rbenv_runner "MatchFetcher.new.fetch_matches"  # Changed from 'runner' to 'rbenv_runner'
 end
 
 every 2.hours do
-  runner "Prediction.evaluate_all"
+  rbenv_runner "Prediction.evaluate_all"  # Changed from 'runner' to 'rbenv_runner'
 end
