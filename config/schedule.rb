@@ -22,17 +22,14 @@
 set :output, "log/cron.log"
 set :environment, ENV["RAILS_ENV"] || "development"
 
-# Define the custom job type FIRST
-job_type :rbenv_runner, %Q{
-  eval "$(rbenv init -)";
-  cd :path && RAILS_ENV=:environment bundle exec rails runner ":task" :output
-}
+job_type :rbenv_runner, %Q(
+  cd :path && RAILS_ENV=:environment bundle exec rails runner ":task"
+)
 
-# Then use the custom job type for your tasks
-every 5.minutes do
-  rbenv_runner "MatchFetcher.new.fetch_matches"  # Changed from 'runner' to 'rbenv_runner'
+every 15.minutes do
+  rbenv_runner "MatchFetcher.new.fetch_matches"
 end
 
 every 2.hours do
-  rbenv_runner "Prediction.evaluate_all"  # Changed from 'runner' to 'rbenv_runner'
+  rbenv_runner "Prediction.evaluate_all"
 end
