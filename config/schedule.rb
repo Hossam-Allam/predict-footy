@@ -33,3 +33,7 @@ end
 every 2.hours do
   rbenv_runner "Prediction.evaluate_all"
 end
+
+every 1.minute do
+  command "echo 'Cron job is running!' >> ~/cron_test.log"
+end
