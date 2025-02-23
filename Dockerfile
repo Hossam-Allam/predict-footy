@@ -9,7 +9,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
 ARG RUBY_VERSION=3.3.4
-FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+FROM docker.io/library/ruby:$RUBY_VERSION AS base
 
 # Rails app lives here
 WORKDIR /rails
@@ -56,6 +56,18 @@ RUN groupadd --system --gid 1000 rails && \
     chown -R rails:rails db log storage tmp
 USER 1000:1000
 
+USER root
+
+RUN mkdir -p /var/lib/apt/lists/partial && \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends -y cron && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+
+
+COPY config/schedule.rb /rails/config/schedule.rb
+
+USER 1000:1000
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
