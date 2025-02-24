@@ -22,18 +22,10 @@
 set :output, "log/cron.log"
 set :environment, ENV["RAILS_ENV"] || "development"
 
-job_type :rbenv_runner, %Q(
-  cd :path && RAILS_ENV=:environment bundle exec rails runner ":task"
-)
-
 every 15.minutes do
-  rbenv_runner "MatchFetcher.new.fetch_matches"
+  runner "MatchFetcher.new.fetch_matches"
 end
 
 every 2.hours do
-  rbenv_runner "Prediction.evaluate_all"
-end
-
-every 1.minute do
-  command "echo 'Cron job is running!' >> ~/cron_test.log"
+  runner "Prediction.evaluate_all"
 end
