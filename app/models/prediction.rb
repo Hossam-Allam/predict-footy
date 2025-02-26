@@ -5,7 +5,7 @@ class Prediction < ApplicationRecord
   validates :match_id, presence: true, uniqueness: { scope: :user_id }
 
   def evaluate
-    return unless match.status == "FINISHED"
+    return unless match.status == "FINISHED" && self.points_awarded == nil
 
     actual_home = match.home_goals.to_i
     actual_away = match.away_goals.to_i
