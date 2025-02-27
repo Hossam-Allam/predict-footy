@@ -1,9 +1,9 @@
 <%= render 'shared/header' %>
 <h1 class="Lindex-title">Prediction History</h1>
 
-<% if @predictions.any? %>
+<% if @scored_predictions.any? %>
   <div class="matches-container">
-    <% @predictions.each do |prediction| %>
+    <% @scored_predictions.each do |prediction| %>
       <% match_class = case prediction.points_awarded %>
         <% when 3 then "match correct" %>
         <% when 1 then "match close" %>
