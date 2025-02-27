@@ -1,27 +1,57 @@
 <%= render 'shared/header' %>
 <h1 class="Lindex-title">Prediction History</h1>
 
-<% if @scored_predictions.any? %>
-  <div class="matches-container">
-    <% @scored_predictions.each do |prediction| %>
-      <% match_class = case prediction.points_awarded %>
-        <% when 3 then "match correct" %>
-        <% when 1 then "match close" %>
-        <% when 0 then "match incorrect" %>
-        <% else "match"%>
-      <% end %>
+<div class="match-filter-buttons">
+  <%= link_to "Scored", my_predictions_path(prediction_type: "scored"), class: "upcoming-matches-button" %>
+  <%= link_to "Unscored", my_predictions_path(prediction_type: "unscored"), class: "finished-matches-button" %>
+  <%= link_to "Matches", root_path, class: "predictions-button" %>
+</div>
 
-      <div class="<%= match_class %>">
-        <%= team_logo(prediction.match.home) %>
-        <h3 class="team"><%= prediction.match.home %></h3>
-        <p class="score"><%= prediction.home_score %> - <%= prediction.away_score %></p>
-        <h3 class="team"><%= prediction.match.away %></h3>
-        <%= team_logo(prediction.match.away) %>
-      </div>
+<div class="matches-container">
+  <% if params[:prediction_type] == 'unscored' %>
+    <% if @unscored_predictions.any? %>
+      <% @unscored_predictions.each do |prediction| %>
+        <div class="match">
+          <%= team_logo(prediction.match.home) %>
+          <h3 class="team"><%= prediction.match.home %></h3>
+          <p class="score"><%= prediction.home_score %> - <%= prediction.away_score %></p>
+          <h3 class="team"><%= prediction.match.away %></h3>
+          <%= team_logo(prediction.match.away) %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>You haven't made any unscored predictions yet.</p>
     <% end %>
-  </div>
-<% else %>
-  <p>You haven't made any predictions yet.</p>
-<% end %>
+  <% else %>
+    <% if @scored_predictions.any? %>
+      <% @scored_predictions.each do |prediction| %>
+        <% match_class = case prediction.points_awarded
+                          when 3 then "match correct"
+                          when 1 then "match close"
+                          when 0 then "match incorrect"
+                          else "match"
+                        end %>
+        <div class="<%= match_class %>">
+          <%= team_logo(prediction.match.home) %>
+          <h3 class="team"><%= prediction.match.home %></h3>
+          <p class="score"><%= prediction.home_score %> - <%= prediction.away_score %></p>
+          <h3 class="team"><%= prediction.match.away %></h3>
+          <%= team_logo(prediction.match.away) %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>You haven't made any scored predictions yet.</p>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="pagination">
+  <% if params[:prediction_type] == 'scored' %>
+    <%= paginate @scored_predictions %>
+  <% else %>
+    <%= paginate @unscored_predictions %>
+  <% end %>
+</div>
+
 
 
