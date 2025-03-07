@@ -132,3 +132,20 @@
     width: 150px;
 
 }
+
+@media only screen and (max-width: 450px) {
+    .new-form form label {
+        width: 75px;
+
+    }
+
+    .new-form form .create-league {
+        width: 100px;
+
+    }
+
+    .new-form form .name-input {
+        width: 75px;
+
+    }
+}
