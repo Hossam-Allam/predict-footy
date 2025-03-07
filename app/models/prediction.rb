@@ -5,25 +5,20 @@ class Prediction < ApplicationRecord
   validates :match_id, presence: true, uniqueness: { scope: :user_id }
 
   def evaluate
-    return unless (match.status == "FINISHED" && self.points_awarded == nil) || self.points_awarded == 0
+    return unless match.status == "FINISHED"
 
-    actual_home = match.home_goals.to_i
-    actual_away = match.away_goals.to_i
-    predicted_home = home_score.to_i
-    predicted_away = away_score.to_i
+    new_points = calculate_points
 
-    if predicted_home == actual_home && predicted_away == actual_away
-      self.points_awarded = 3
-    elsif outcome_correct?(predicted_home, predicted_away, actual_home, actual_away)
-      self.points_awarded = 1
-    else
-      self.points_awarded = 0
-    end
-
-    save!
-
-    user.league_memberships.each do |membership|
-      membership.increment!(:points, self.points_awarded)
+    # First evaluation or zero points
+    if self.points_awarded.nil? || self.points_awarded == 0
+      self.points_awarded = new_points
+      save!
+      user.league_memberships.each do |membership|
+        membership.increment!(:points, new_points)
+      end
+      # Already evaluated; if points differ, adjust the score and update league membership points accordingly.
+    elsif self.points_awarded != new_points
+      reevaluate_prediction!(new_points)
     end
   end
 
@@ -32,6 +27,32 @@ class Prediction < ApplicationRecord
   end
 
   private
+
+  # Calculate the points based on current match and prediction data
+  def calculate_points
+    actual_home   = match.home_goals.to_i
+    actual_away   = match.away_goals.to_i
+    predicted_home = home_score.to_i
+    predicted_away = away_score.to_i
+
+    if predicted_home == actual_home && predicted_away == actual_away
+      3
+    elsif outcome_correct?(predicted_home, predicted_away, actual_home, actual_away)
+      1
+    else
+      0
+    end
+  end
+
+  # Re-Adjusting the points and update the user's league scores accordingly.
+  def reevaluate_prediction!(new_points)
+    difference = new_points - self.points_awarded
+    user.league_memberships.each do |membership|
+      membership.increment!(:points, difference)
+    end
+    self.points_awarded = new_points
+    save!
+  end
 
   def outcome_correct?(predicted_home, predicted_away, actual_home, actual_away)
     predicted_outcome = outcome(predicted_home, predicted_away)
