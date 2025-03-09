@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def run_fetch_and_evaluate
-    FetchAndEvaluateJob.perform_later
+    #FetchAndEvaluateJob.perform_later
     session[:ran_fetch_and_evaluate] = true
   end
 
