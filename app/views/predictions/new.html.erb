@@ -7,6 +7,8 @@
     Make Your Prediction
   <% end %>
 </h1>
+<%= turbo_frame_tag dom_id(@match, :frame) do %>
+  <%= render "form" %>
+<% end %>
 
-<%= render "form" %>
 
