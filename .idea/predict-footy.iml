@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="ModuleRunConfigurationManager">
+    <shared />
+  </component>
+  <component name="RModuleSettingsStorage">
+    <LOAD_PATH number="0" />
+    <I18N_FOLDERS number="1" string0="$MODULE_DIR$/config/locales" />
+  </component>
+  <component name="RailsGeneratorsCache">
+    <option name="generators">
+      <list>
+        <option value="active_record:application_record" />
+        <option value="active_record:devise" />
+        <option value="active_record:multi_db" />
+        <option value="application_record" />
+        <option value="authentication" />
+        <option value="benchmark" />
+        <option value="channel" />
+        <option value="controller" />
+        <option value="devise" />
+        <option value="devise:controllers" />
+        <option value="devise:install" />
+        <option value="devise:views" />
+        <option value="erb:authentication" />
+        <option value="generator" />
+        <option value="helper" />
+        <option value="integration_test" />
+        <option value="jbuilder" />
+        <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
+        <option value="mailbox" />
+        <option value="mailer" />
+        <option value="migration" />
+        <option value="model" />
+        <option value="mongoid:devise" />
+        <option value="resource" />
+        <option value="responders:install" />
+        <option value="responders_controller" />
+        <option value="scaffold" />
+        <option value="scaffold_controller" />
+        <option value="script" />
+        <option value="stimulus" />
+        <option value="system_test" />
+        <option value="task" />
+        <option value="test_unit:authentication" />
+        <option value="test_unit:channel" />
+        <option value="test_unit:generator" />
+        <option value="test_unit:install" />
+        <option value="test_unit:mailbox" />
+        <option value="test_unit:plugin" />
+      </list>
+    </option>
+    <option name="myGenerators">
+      <list>
+        <option value="active_record:application_record" />
+        <option value="active_record:devise" />
+        <option value="active_record:multi_db" />
+        <option value="application_record" />
+        <option value="authentication" />
+        <option value="benchmark" />
+        <option value="channel" />
+        <option value="controller" />
+        <option value="devise" />
+        <option value="devise:controllers" />
+        <option value="devise:install" />
+        <option value="devise:views" />
+        <option value="erb:authentication" />
+        <option value="generator" />
+        <option value="helper" />
+        <option value="integration_test" />
+        <option value="jbuilder" />
+        <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
+        <option value="mailbox" />
+        <option value="mailer" />
+        <option value="migration" />
+        <option value="model" />
+        <option value="mongoid:devise" />
+        <option value="resource" />
+        <option value="responders:install" />
+        <option value="responders_controller" />
+        <option value="scaffold" />
+        <option value="scaffold_controller" />
+        <option value="script" />
+        <option value="stimulus" />
+        <option value="system_test" />
+        <option value="task" />
+        <option value="test_unit:authentication" />
+        <option value="test_unit:channel" />
+        <option value="test_unit:generator" />
+        <option value="test_unit:install" />
+        <option value="test_unit:mailbox" />
+        <option value="test_unit:plugin" />
+      </list>
+    </option>
+  </component>
+  <component name="RailsPaths" isManagedAutomatically="true">
+    <entry key="app">
+      <value>file://$MODULE_DIR$/app</value>
+    </entry>
+    <entry key="app/assets">
+      <value>file://$MODULE_DIR$/app/assets</value>
+    </entry>
+    <entry key="app/channels">
+      <value>file://$MODULE_DIR$/app/channels</value>
+    </entry>
+    <entry key="app/controllers">
+      <value>file://$MODULE_DIR$/app/controllers</value>
+    </entry>
+    <entry key="app/helpers">
+      <value>file://$MODULE_DIR$/app/helpers</value>
+    </entry>
+    <entry key="app/mailers">
+      <value>file://$MODULE_DIR$/app/mailers</value>
+    </entry>
+    <entry key="app/models">
+      <value>file://$MODULE_DIR$/app/models</value>
+    </entry>
+    <entry key="app/views">
+      <value>file://$MODULE_DIR$/app/views</value>
+    </entry>
+    <entry key="config">
+      <value>file://$MODULE_DIR$/config</value>
+    </entry>
+    <entry key="config/cable">
+      <value>file://$MODULE_DIR$/config/cable.yml</value>
+    </entry>
+    <entry key="config/database">
+      <value>file://$MODULE_DIR$/config/database.yml</value>
+    </entry>
+    <entry key="config/environment">
+      <value>file://$MODULE_DIR$/config/environment.rb</value>
+    </entry>
+    <entry key="config/environments">
+      <value>file://$MODULE_DIR$/config/environments</value>
+    </entry>
+    <entry key="config/initializers">
+      <value>file://$MODULE_DIR$/config/initializers</value>
+    </entry>
+    <entry key="config/locales">
+      <value>file://$MODULE_DIR$/config/locales</value>
+    </entry>
+    <entry key="config/routes">
+      <value>file://$MODULE_DIR$/config/routes</value>
+    </entry>
+    <entry key="config/routes.rb">
+      <value>file://$MODULE_DIR$/config/routes.rb</value>
+    </entry>
+    <entry key="db">
+      <value>file://$MODULE_DIR$/db</value>
+    </entry>
+    <entry key="db/migrate">
+      <value>file://$MODULE_DIR$/db/migrate</value>
+    </entry>
+    <entry key="db/seeds.rb">
+      <value>file://$MODULE_DIR$/db/seeds.rb</value>
+    </entry>
+    <entry key="lib">
+      <value>file://$MODULE_DIR$/lib</value>
+    </entry>
+    <entry key="lib/assets">
+      <value>file://$MODULE_DIR$/lib/assets</value>
+    </entry>
+    <entry key="lib/tasks">
+      <value>file://$MODULE_DIR$/lib/tasks</value>
+    </entry>
+    <entry key="lib/templates">
+      <value>file://$MODULE_DIR$/lib/templates</value>
+    </entry>
+    <entry key="log">
+      <value>file://$MODULE_DIR$/log/development.log</value>
+    </entry>
+    <entry key="public">
+      <value>file://$MODULE_DIR$/public</value>
+    </entry>
+    <entry key="public/javascripts">
+      <value>file://$MODULE_DIR$/public/javascripts</value>
+    </entry>
+    <entry key="public/stylesheets">
+      <value>file://$MODULE_DIR$/public/stylesheets</value>
+    </entry>
+    <entry key="test/mailers/previews">
+      <value>file://$MODULE_DIR$/test/mailers/previews</value>
+      <value>file:///home/hossam/repos/predict-footy/test/mailers/previews</value>
+    </entry>
+    <entry key="tmp">
+      <value>file://$MODULE_DIR$/tmp</value>
+    </entry>
+    <entry key="vendor">
+      <value>file://$MODULE_DIR$/vendor</value>
+    </entry>
+    <entry key="vendor/assets">
+      <value>file://$MODULE_DIR$/vendor/assets</value>
+    </entry>
+  </component>
+</module>
