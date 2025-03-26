@@ -13,6 +13,7 @@ class PredictionsController < ApplicationController
 
     if @prediction.update(prediction_params)
       redirect_to root_path, notice: "Prediction submitted successfully."
+
     else
       render :new
     end
@@ -22,6 +23,7 @@ class PredictionsController < ApplicationController
     @prediction = @match.predictions.find_by(user: current_user)
     if @prediction.update(prediction_params)
       redirect_to root_path, notice: "Your prediction was updated successfully."
+
     else
       render :new
     end

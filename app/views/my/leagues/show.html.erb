@@ -15,7 +15,7 @@
     <% @memberships.each_with_index do |membership, index| %>
       <div class="league-membership">
         <p>
-          <%= index + 1 %>- <span class="member-name"><%= membership.user.name %></span>: <%= membership.points %> points
+          <%= index + 1 %>- <span class="league-name"><%= link_to membership.user.name, my_prediction_path(membership.user.id), data: { turbo: false } %></span>: <%= membership.points %> points
         </p>
       </div>
     <% end %>
