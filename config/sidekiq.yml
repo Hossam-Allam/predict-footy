@@ -11,7 +11,7 @@
       queue: default
 
     prediction_evaluation_job:
-      cron: "0 */2 * * *"  # every 2 hours (at minute 0)
+      cron: "*/20 * * * *"  # every 20 minutes
       class: "PredictionEvaluationWorker"
       queue: default
 
