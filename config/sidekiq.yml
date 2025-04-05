@@ -6,7 +6,7 @@
 :scheduler:
   :schedule:
     match_fetcher_job:
-      cron: "*/30 * * * *"  # every 30 minutes
+      cron: "*/15 * * * *"  # every 15 minutes
       class: "MatchFetcherWorker"
       queue: default
 
@@ -15,7 +15,4 @@
       class: "PredictionEvaluationWorker"
       queue: default
 
-    test_task_job:
-      cron: "* * * * *"   # every minute
-      class: "TestTaskWorker"
-      queue: default
+
