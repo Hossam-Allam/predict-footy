@@ -3,18 +3,19 @@
   - default
   - mailers
 
-:schedule:
-  match_fetcher_job:
-    cron: "*/30 * * * *"  # every 30 minutes
-    class: "MatchFetcherWorker"
-    queue: default
+:scheduler:
+  :schedule:
+    match_fetcher_job:
+      cron: "*/30 * * * *"  # every 30 minutes
+      class: "MatchFetcherWorker"
+      queue: default
 
-  prediction_evaluation_job:
-    cron: "0 */2 * * *"  # every 2 hours (at minute 0)
-    class: "PredictionEvaluationWorker"
-    queue: default
+    prediction_evaluation_job:
+      cron: "0 */2 * * *"  # every 2 hours (at minute 0)
+      class: "PredictionEvaluationWorker"
+      queue: default
 
-  test_task_job:
-    cron: "* * * * *"   # every minute
-    class: "TestTaskWorker"
-    queue: default
+    test_task_job:
+      cron: "* * * * *"   # every minute
+      class: "TestTaskWorker"
+      queue: default
