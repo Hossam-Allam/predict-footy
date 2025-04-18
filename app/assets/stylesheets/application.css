@@ -21,6 +21,12 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1; 
 }
 
 /* GitHub-style pagination */
