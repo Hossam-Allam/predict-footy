@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   end
 
   root "matches#index"
+
+  get "about", to: "pages#about"
 end
