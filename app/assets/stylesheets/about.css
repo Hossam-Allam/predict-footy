@@ -1,0 +1,31 @@
+.about {
+    text-align: center;
+}
+
+.about ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sub-header {
+    color: rgb(32, 122, 200);
+}
+
+/* Footer styles */
+.footer {
+    background-color: #f1f1f1;
+    padding: 5px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.footer-link {
+    color: rgb(32, 122, 200);
+    text-decoration: none;
+}
