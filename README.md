@@ -18,12 +18,13 @@ A web application where users can predict football match outcomes, compete in le
 ## Technologies 🛠️
 
 - **Backend**: Ruby on Rails 7
-- **Database**: PostgreSQL
+- **Database**: PostgreSQL, Redis
 - **Frontend**:    
   - Turbo Rails  
   - Custom CSS
 - **Authentication**: Devise + Omniauth
 - **API Integration**: Football-data.org
+- **Cron Jobs**: Sidekiq-scheduler Through Redis
 - **Pagination**: Kaminari
 
 

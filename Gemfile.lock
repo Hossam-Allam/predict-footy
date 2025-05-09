@@ -78,8 +78,7 @@ GEM
     base64 (0.2.0)
     bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
-    bcrypt_pbkdf (1.1.1-arm64-darwin)
-    bcrypt_pbkdf (1.1.1-x86_64-darwin)
+    bcrypt_pbkdf (1.1.1-x64-mingw-ucrt)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
     bindex (0.8.1)
@@ -119,12 +118,17 @@ GEM
     drb (2.2.1)
     ed25519 (1.3.0)
     erubi (1.13.1)
+    et-orbi (1.2.11)
+      tzinfo
     faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
+    fugit (1.11.1)
+      et-orbi (~> 1, >= 1.2.11)
+      raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
@@ -186,7 +190,6 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.8)
     minitest (5.25.4)
     msgpack (1.8.0)
     multi_xml (0.7.1)
@@ -208,24 +211,9 @@ GEM
       net-protocol
     net-ssh (7.3.0)
     nio4r (2.7.4)
-    nokogiri (1.18.3)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
-    nokogiri (1.18.3-aarch64-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.18.3-aarch64-linux-musl)
-      racc (~> 1.4)
-    nokogiri (1.18.3-arm-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.18.3-arm-linux-musl)
-      racc (~> 1.4)
-    nokogiri (1.18.3-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.18.3-x86_64-darwin)
+    nokogiri (1.18.3-x64-mingw-ucrt)
       racc (~> 1.4)
     nokogiri (1.18.3-x86_64-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.18.3-x86_64-linux-musl)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -254,6 +242,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.9)
+    pg (1.5.9-x64-mingw-ucrt)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -268,6 +257,7 @@ GEM
     public_suffix (6.0.1)
     puma (6.6.0)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.8.1)
     rack (3.1.10)
     rack-protection (4.1.1)
@@ -314,6 +304,8 @@ GEM
     rake (13.2.1)
     rdoc (6.12.0)
       psych (>= 4.0.0)
+    redis-client (0.24.0)
+      connection_pool
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
@@ -355,6 +347,8 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
+    rufus-scheduler (3.9.2)
+      fugit (~> 1.1, >= 1.11.1)
     securerandom (0.4.1)
     selenium-webdriver (4.29.0)
       base64 (~> 0.2)
@@ -362,6 +356,16 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.3.9)
+      base64
+      connection_pool (>= 2.3.0)
+      logger
+      rack (>= 2.2.4)
+      redis-client (>= 0.22.2)
+    sidekiq-scheduler (5.0.6)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 6, < 8)
+      tilt (>= 1.4.0, < 3)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -377,16 +381,16 @@ GEM
     stringio (3.1.5)
     thor (1.3.2)
     thruster (0.1.11)
-    thruster (0.1.11-aarch64-linux)
-    thruster (0.1.11-arm64-darwin)
-    thruster (0.1.11-x86_64-darwin)
     thruster (0.1.11-x86_64-linux)
+    tilt (2.6.0)
     timeout (0.4.3)
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2025.2)
+      tzinfo (>= 1.0.0)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
@@ -412,17 +416,8 @@ GEM
     zeitwerk (2.7.2)
 
 PLATFORMS
-  aarch64-linux
-  aarch64-linux-gnu
-  aarch64-linux-musl
-  arm-linux-gnu
-  arm-linux-musl
-  arm64-darwin
-  ruby
-  x86_64-darwin
+  x64-mingw-ucrt
   x86_64-linux
-  x86_64-linux-gnu
-  x86_64-linux-musl
 
 DEPENDENCIES
   bootsnap
@@ -445,6 +440,7 @@ DEPENDENCIES
   rails (~> 8.0.1)
   rubocop-rails-omakase
   selenium-webdriver
+  sidekiq-scheduler
   stimulus-rails
   thruster
   turbo-rails

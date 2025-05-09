@@ -7,3 +7,16 @@ db/schema.rb linguist-generated
 vendor/* linguist-vendored
 config/credentials/*.yml.enc diff=rails_credentials
 config/credentials.yml.enc diff=rails_credentials
+
+# Normal text files:
+* text=auto
+
+# Force LF for scripts and Ruby files:
+bin/*       text eol=lf
+script/*    text eol=lf
+*.sh        text eol=lf
+*.rb        text eol=lf
+*.rake      text eol=lf
+
+# Your lockfile too, if you like consistency:
+Gemfile.lock text eol=lf

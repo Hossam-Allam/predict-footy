@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "pages/about"
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   namespace :my do
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
         post "join", to: "leagues#join", as: :join_league
       end
     end
-    resources :predictions, only: [ :index ]
+    resources :predictions, only: [ :index, :show ]
   end
 
   resources :matches, only: [ :index, :show ] do
@@ -15,4 +16,6 @@ Rails.application.routes.draw do
   end
 
   root "matches#index"
+
+  get "about", to: "pages#about"
 end
