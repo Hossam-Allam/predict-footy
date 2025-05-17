@@ -10,12 +10,16 @@
   </div>
 
   <h2 class="Lindex-title">Standings</h2>
-
   <div class="standings">
     <% @memberships.each_with_index do |membership, index| %>
+      <% row_number = @memberships.offset_value + index + 1 %>
       <div class="league-membership">
         <p>
-          <%= index + 1 %>- <span class="league-name"><%= link_to membership.user.name, my_prediction_path(membership.user.id), data: { turbo: false } %></span>: <%= membership.points %> points
+          <%= row_number %>-
+          <span class="league-name">
+            <%= link_to membership.user.name, my_prediction_path(membership.user.id), data: { turbo: false } %>
+          </span>:
+          <%= membership.points %> points
         </p>
       </div>
     <% end %>
