@@ -9,44 +9,19 @@
 
 <div class="matches-container">
   <% if params[:match_type] == 'finished' %>
-    <% @finished_matches.each do |match| %>
-      <div class="match">
-        <%= team_logo(match.home) %>
-        <h3 class="team"><%= match.home %></h3>
-        <p class="score"><%= match.home_goals %> - <%= match.away_goals %></p>
-        <h3 class="team"><%= match.away %></h3>
-        <%= team_logo(match.away) %>
-      </div>
-    <% end %>
+    <%= render partial: "finished_matches", collection: @finished_matches, as: :match %>
+  <% elsif @upcoming_matches.empty? %>
+      <h3 class="Mindex-title">Season Over, new season fixtures yet to be announced</h3>
+    <%= render partial: "finished_matches", collection: @finished_matches, as: :match %>
   <% else %>
-    <% @upcoming_matches.each do |match| %>
-      <%= turbo_frame_tag dom_id(match, :frame) do %>
-        <% if user_signed_in? %>
-          <%= link_to new_match_prediction_path(match), class: "match-link", data: { turbo_frame: dom_id(match, :frame) } do %>
-            <div class="match">
-              <%= team_logo(match.home) %>
-              <h3 class="team"><%= match.home %></h3>
-              <p class="date"><%= match.scheduled_at.strftime("%b %d, %Y") %></p>
-              <h3 class="team"><%= match.away %></h3>
-              <%= team_logo(match.away) %>
-            </div>
-          <% end %>
-        <% else %>
-          <div class="match disabled">
-            <%= team_logo(match.home) %>
-            <h3 class="team"><%= match.home %></h3>
-            <p class="date"><%= match.scheduled_at.strftime("%b %d, %Y") %></br>Sign in to predict</p>
-            <h3 class="team"><%= match.away %></h3>
-            <%= team_logo(match.away) %>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
+    <%= render partial: "upcoming_matches", collection: @upcoming_matches, as: :match %>
   <% end %>
 </div>
 
 <div class="pagination">
   <% if params[:match_type] == 'finished' %>
+    <%= paginate @finished_matches %>
+  <% elsif @upcoming_matches.empty? %>
     <%= paginate @finished_matches %>
   <% else %>
     <%= paginate @upcoming_matches %>
