@@ -23,8 +23,17 @@ module ApplicationHelper
 
   }.freeze
 
+
   def team_logo(team_name)
-    logo = TEAM_LOGO_MAP[team_name] || "default-team.png"
-    image_tag("teams/#{logo}", class: "team-logo")
+    if (logo = TEAM_LOGO_MAP[team_name])
+
+      image_tag("teams/#{logo}", class: "team-logo")
+    else
+
+      image_tag(
+        "https://img.freepik.com/premium-vector/vector-football-logo-football-logo-football-club-sign_627382-60.jpg",
+        class: "team-logo"
+      )
+    end
   end
 end
