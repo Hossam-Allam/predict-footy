@@ -28,8 +28,10 @@ class MatchFetcher
           match.away_goals = m["score"]["fullTime"]["away"]
         end
 
-        match.status      = m["status"]
-        match.save!
+        unless match.status == "FINISHED"
+          match.status = m["status"]
+          match.save!
+        end
       end
     else
       Rails.logger.error("Failed to fetch matches: #{response.code} #{response.message}")
