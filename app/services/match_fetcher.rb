@@ -11,7 +11,7 @@ class MatchFetcher
   end
 
   def fetch_matches
-    response = self.class.get("/competitions/CL/matches", headers: @headers)
+    response = self.class.get("/competitions/PL/matches", headers: @headers)
 
     if response.success?
       matches = response.parsed_response["matches"]
@@ -32,8 +32,8 @@ class MatchFetcher
 
         unless match.status == "FINISHED"
           match.status = m["status"]
-          match.save!
         end
+        match.save!
       end
     else
       Rails.logger.error("Failed to fetch matches: #{response.code} #{response.message}")
