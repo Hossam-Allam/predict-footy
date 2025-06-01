@@ -12,11 +12,11 @@
                             else "match"
                         end %>
         <div class="<%= match_class %>">
-            <%= team_logo(prediction.match.home) %>
+            <%= team_logo(prediction.match.home, prediction.match.home_crest) %>
             <h3 class="team"><%= prediction.match.home %></h3>
             <p class="score"><%= prediction.home_score %> - <%= prediction.away_score %></p>
             <h3 class="team"><%= prediction.match.away %></h3>
-            <%= team_logo(prediction.match.away) %>
+            <%= team_logo(prediction.match.home, prediction.match.away_crest) %>
         </div>
         <% end %>
     <% else %>
