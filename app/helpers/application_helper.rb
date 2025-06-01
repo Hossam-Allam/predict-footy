@@ -24,12 +24,12 @@ module ApplicationHelper
   }.freeze
 
 
-  def team_logo(team_name)
-    if (logo = TEAM_LOGO_MAP[team_name])
-
-      image_tag("teams/#{logo}", class: "team-logo")
+  def team_logo(team_name, crest_url = nil)
+    if (logo_filename = TEAM_LOGO_MAP[team_name])
+      image_tag("teams/#{logo_filename}", class: "team-logo")
+    elsif crest_url.present?
+      image_tag(crest_url, class: "team-logo")
     else
-
       image_tag(
         "https://img.freepik.com/premium-vector/vector-football-logo-football-logo-football-club-sign_627382-60.jpg",
         class: "team-logo"
