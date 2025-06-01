@@ -3,8 +3,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
+    remember = (request.params["remember_me"] == "1")
+
     if @user.persisted?
       flash[:notice] = I18n.t("devise.omniauth_callbacks.success", kind: "GitHub")
+
+      if remember
+        @user.remember_me!      # sets remember_created_at = now
+      end
+
       sign_in_and_redirect @user, event: :authentication
     else
       # If user record wasn’t saved for some reason, redirect to sign-up.
