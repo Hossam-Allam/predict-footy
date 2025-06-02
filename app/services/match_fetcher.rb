@@ -30,8 +30,8 @@ class MatchFetcher
           match.away_goals = m["score"]["fullTime"]["away"]
         end
 
-        unless match.status == "FINISHED"
-          match.status = m["status"]
+        unless match.status.to_s.upcase.strip == "FINISHED"
+          match.status = m["status"].to_s.upcase.strip
         end
         match.save!
       end
