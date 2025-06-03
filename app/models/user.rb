@@ -14,6 +14,10 @@ class User < ApplicationRecord
   after_create :join_worldwide_league
 
 
+  def rememberable_value
+    remember_token || super
+  end
+
   def self.from_omniauth(auth)
     user = User.find_or_initialize_by(provider: auth.provider, uid: auth.uid)
 
