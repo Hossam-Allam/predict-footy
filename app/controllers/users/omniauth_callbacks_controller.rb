@@ -10,6 +10,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       flash[:notice] = I18n.t("devise.omniauth_callbacks.success", kind: "GitHub")
 
+
+      if remember_me
+        @user.remember_me!
+      end
+
       remember_me(@user) if remember_me
 
       sign_in_and_redirect @user, event: :authentication

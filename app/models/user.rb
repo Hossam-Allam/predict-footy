@@ -18,6 +18,11 @@ class User < ApplicationRecord
     remember_token || super
   end
 
+  def remember_me!
+    super
+    save(validate: false) if changed?
+  end
+
   def self.from_omniauth(auth)
     user = User.find_or_initialize_by(provider: auth.provider, uid: auth.uid)
 
