@@ -4,6 +4,13 @@ class Prediction < ApplicationRecord
 
   validates :match_id, presence: true, uniqueness: { scope: :user_id }
 
+  scope :scored, -> {
+    where.not(points_awarded: nil).order(created_at: :desc)
+  }
+
+  scope :unscored, -> {
+    where(points_awarded: nil).order(created_at: :desc)
+  }
   def evaluate
     return unless match.status == "FINISHED"
 

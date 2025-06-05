@@ -4,15 +4,16 @@ class My::PredictionsController < ApplicationController
   def index
     @scored_predictions = current_user
                                       .predictions
-                                      .where
-                                      .not(points_awarded: nil)
+                                      .scored
                                       .includes(:match)
-                                      .order(created_at: :desc).page(params[:page]).per(10)
+                                      .page(params[:page])
+                                      .per(10)
     @unscored_predictions = current_user
                                         .predictions
-                                        .where(points_awarded: nil)
+                                        .unscored
                                         .includes(:match)
-                                        .order(created_at: :desc).page(params[:page]).per(10)
+                                        .page(params[:page])
+                                        .per(10)
   end
 
   def show
@@ -20,9 +21,9 @@ class My::PredictionsController < ApplicationController
 
     @scored_predictions = @user
                               .predictions
-                              .where
-                              .not(points_awarded: nil)
+                              .scored
                               .includes(:match)
-                              .order(created_at: :desc).page(params[:page]).per(10)
+                              .page(params[:page])
+                              .per(10)
   end
 end
