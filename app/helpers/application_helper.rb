@@ -31,7 +31,7 @@ module ApplicationHelper
       image_tag(crest_url, class: "team-logo")
     else
       image_tag(
-        "https://img.freepik.com/premium-vector/vector-football-logo-football-logo-football-club-sign_627382-60.jpg",
+        "http://img.freepik.com/premium-vector/vector-football-logo-football-logo-football-club-sign_627382-60.jpg",
         class: "team-logo"
       )
     end
