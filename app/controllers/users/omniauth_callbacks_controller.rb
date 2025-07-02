@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       # If user record wasn’t saved for some reason, redirect to sign-up.
       session["devise.github_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
+      redirect_to new_user_registration_url, alert: @user.errors.full_messages.join(". ")
     end
   end
 
