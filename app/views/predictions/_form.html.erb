@@ -12,13 +12,15 @@
                 data-action="number-input#decrement">−</button>
       </div>
 
+      <%= f.label :home_score,
+            team_logo(@prediction.match.home, @prediction.match.home_crest) %>
+
       <%= f.number_field :home_score,
             class: "form-control",
             min: 0,
             data: { "number-input-target": "input" } %>
 
-      <%= f.label :home_score,
-            team_logo(@prediction.match.home, @prediction.match.home_crest) %>
+      
 
     </div>
 
