@@ -1,42 +1,68 @@
 .pred-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 .pred-input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .pred-form .form-control {
-    background-color: rgb(173, 182, 182);
-    width: 30px;
-    height: 40px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
+  background-color: rgb(173, 182, 182);
+  width: 30px;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .pred-btn {
-    padding: 10px;
-    background-color: rgb(181, 184, 220);
-    color: white;
-    font-weight: bold;
-
+  padding: 10px;
+  background-color: rgb(181, 184, 220);
+  color: white;
+  font-weight: bold;
 }
 
 .pred-btn:hover {
-    background-color: rgb(147, 151, 188);
-    cursor: pointer;
+  background-color: rgb(147, 151, 188);
+  cursor: pointer;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*new*/
+
+.score-control {
+  display: inline-flex;
+  align-items: center;
+}
+.score-control button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  margin: 0 0.25rem;
+}
+.form-control {
+  width: 3rem;
+  text-align: center;
+}
+.dash {
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.score-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

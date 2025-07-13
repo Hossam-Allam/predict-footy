@@ -1,13 +1,53 @@
 <%= form_with model: [@match, @prediction], local: true, class: "pred-form" do |f| %>
-  
   <div class="pred-input">
-      <%= f.label :home_score, team_logo(@prediction.match.home, @prediction.match.home_crest) %>
-      <%= f.number_field :home_score, class: "form-control" %>
-        -
+
+    <!-- HOME SCORE CONTROL -->
+    <div class="score-control"
+         data-controller="number-input">
       
-      <%= f.number_field :away_score, class: "form-control" %>
-      <%= f.label :away_score, team_logo(@prediction.match.away, @prediction.match.away_crest)  %>
+      <div class="score-buttons">
+        <button class="btn-plus"
+                data-action="number-input#increment">+</button>
+        <button class="btn-minus"
+                data-action="number-input#decrement">−</button>
+      </div>
+
+      <%= f.number_field :home_score,
+            class: "form-control",
+            min: 0,
+            data: { "number-input-target": "input" } %>
+
+      <%= f.label :home_score,
+            team_logo(@prediction.match.home, @prediction.match.home_crest) %>
+
+    </div>
+
+    <span class="dash">–</span>
+
+    <!-- AWAY SCORE CONTROL -->
+    <div class="score-control"
+         data-controller="number-input">
+
+      <%= f.number_field :away_score,
+            class: "form-control",
+            min: 0,
+            data: { "number-input-target": "input" } %>
+
+      <%= f.label :away_score,
+            team_logo(@prediction.match.away, @prediction.match.away_crest) %>
+
+      <div class="score-buttons">
+        <button class="btn-plus"
+                data-action="number-input#increment">+</button>
+        <button class="btn-minus"
+                data-action="number-input#decrement">−</button>
+      </div>
+
+    </div>
+
   </div>
 
-  <%= f.submit @prediction.persisted? ? "Update" : "Submit", class: "pred-btn" %>
+  <%= f.submit @prediction.persisted? ? "Update" : "Submit",
+               class: "pred-btn" %>
 <% end %>
+
