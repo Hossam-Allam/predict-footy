@@ -16,7 +16,7 @@
             <h3 class="team"><%= prediction.match.home %></h3>
             <p class="score"><%= prediction.home_score %> - <%= prediction.away_score %></p>
             <h3 class="team"><%= prediction.match.away %></h3>
-            <%= team_logo(prediction.match.home, prediction.match.away_crest) %>
+            <%= team_logo(prediction.match.away, prediction.match.away_crest) %>
         </div>
         <% end %>
     <% else %>
