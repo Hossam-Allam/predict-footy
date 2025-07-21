@@ -7,6 +7,12 @@
   <%= link_to "Matches", root_path, class: "predictions-button" %>
 </div>
 
+<div class="prediction-stats">
+  <p><strong class="exact">Exact:</strong>     <%= @stats[:exact] %>%</p>
+  <p><strong class="correct">Correct outcome:</strong> <%= @stats[:correct] %>%</p>
+  <p><strong class="inaccurate">Inaccurate:</strong> <%= @stats[:inaccurate] %>%</p>
+</div>
+
 <div class="matches-container">
   <% if params[:prediction_type] == 'unscored' %>
     <% if @unscored_predictions.any? %>

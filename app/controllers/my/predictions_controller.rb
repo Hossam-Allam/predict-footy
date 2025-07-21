@@ -14,6 +14,8 @@ class My::PredictionsController < ApplicationController
                                         .includes(:match)
                                         .page(params[:page])
                                         .per(10)
+
+    @stats = Prediction.stats_for_user(current_user)
   end
 
   def show
@@ -25,5 +27,7 @@ class My::PredictionsController < ApplicationController
                               .includes(:match)
                               .page(params[:page])
                               .per(10)
+
+    @stats = Prediction.stats_for_user(@user)
   end
 end

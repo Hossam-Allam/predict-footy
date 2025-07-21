@@ -46,6 +46,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: inline-flex;
   align-items: center;
 }
+
 .score-control button {
   width: 2rem;
   height: 2rem;
@@ -60,10 +61,12 @@ input[type="number"]::-webkit-outer-spin-button {
   cursor: pointer;
   background-color: #41607f;
 }
+
 .form-control {
   width: 3rem;
   text-align: center;
 }
+
 .dash {
   margin: 0 0.5rem;
   font-size: 1.5rem;
@@ -73,4 +76,22 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+/*Stats*/
+
+.prediction-stats {
+  text-align: center;
+}
+
+.exact {
+  color: rgb(63, 157, 63);
+}
+
+.correct {
+  color: rgb(207, 207, 101);
+}
+
+.inaccurate {
+  color: rgb(184, 71, 71)
 }

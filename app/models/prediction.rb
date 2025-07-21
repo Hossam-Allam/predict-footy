@@ -11,6 +11,18 @@ class Prediction < ApplicationRecord
   scope :unscored, -> {
     where(points_awarded: nil).order(created_at: :desc)
   }
+
+  def self.stats_for_user(user)
+    scored = where(user: user).scored
+    total  = scored.count.nonzero? || 1
+
+    {
+      exact:      (scored.where(points_awarded: 3).count.to_f  / total * 100).round(1),
+      correct:    (scored.where(points_awarded: 1).count.to_f  / total * 100).round(1),
+      inaccurate: (scored.where(points_awarded: 0).count.to_f  / total * 100).round(1)
+    }
+  end
+
   def evaluate
     return unless match.status == "FINISHED"
 
