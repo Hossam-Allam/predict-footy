@@ -86,6 +86,26 @@ Rails.application.configure do
   #
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+
+  # Setting up mailer
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              "smtp.gmail.com",
+    port:                 587,
+    domain:               "predict-footy-production.up.railway.app",
+    user_name:            "predictfootynotis@gmail.com",
+    password:             ENV["GMAIL_APP_PASSWORD"],
+    authentication:       :login,
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.default_url_options = {
+    host: "predict-footy-production.up.railway.app",
+    protocol: "https"
+  }
+
   Rails.application.configure do
     config.require_master_key = true
   end
