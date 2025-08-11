@@ -5,11 +5,11 @@ class PredictionsController < ApplicationController
 
 
   def new
-    @prediction = @match.predictions.find_by(user: current_user) || @match.predictions.build(user: current_user)
+    @prediction = @match.predictions.find_by(user: current_user, season: ::Season.current) || @match.predictions.build(user: current_user, season: ::Season.current)
   end
 
   def create
-    @prediction = @match.predictions.find_by(user: current_user) || @match.predictions.build(user: current_user)
+    @prediction = @match.predictions.find_by(user: current_user, season: ::Season.current) || @match.predictions.build(user: current_user, season: ::Season.current)
 
     if @prediction.update(prediction_params)
       redirect_to root_path, notice: "Prediction submitted successfully."

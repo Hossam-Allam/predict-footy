@@ -3,6 +3,10 @@ class Prediction < ApplicationRecord
   belongs_to :match
 
   validates :match_id, presence: true, uniqueness: { scope: :user_id }
+  validates :season, presence: true
+
+  before_validation :set_default_season, on: :create
+
 
   scope :scored, -> {
     where.not(points_awarded: nil).order(created_at: :desc)
@@ -82,5 +86,9 @@ class Prediction < ApplicationRecord
   def outcome(home, away)
     return :draw if home == away
     home > away ? :home : :away
+  end
+
+  def set_default_season
+    self.season ||= ::Season.current
   end
 end
