@@ -5,6 +5,7 @@ class My::PredictionsController < ApplicationController
     @scored_predictions = current_user
                                       .predictions
                                       .scored
+                                      .where(season: ::Season.current)
                                       .includes(:match)
                                       .page(params[:page])
                                       .per(10)
@@ -24,6 +25,7 @@ class My::PredictionsController < ApplicationController
     @scored_predictions = @user
                               .predictions
                               .scored
+                              .where(season: ::Season.current)
                               .includes(:match)
                               .page(params[:page])
                               .per(10)

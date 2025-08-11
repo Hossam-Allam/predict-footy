@@ -16,7 +16,7 @@
               <%= membership.points %> points
             <% end %>
           </div>
-          <div class="league-members"><%= league.league_memberships.count%> Members</div>
+          <div class="league-members"><%= league.league_memberships.where(season: ::Season.current).count%> Members</div>
         </div>
       <% end %>
     <% end %>

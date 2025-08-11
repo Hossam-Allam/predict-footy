@@ -17,9 +17,9 @@ class Prediction < ApplicationRecord
     total  = scored.count.nonzero? || 1
 
     {
-      exact:      (scored.where(points_awarded: 3).count.to_f  / total * 100).round(1),
-      correct:    (scored.where(points_awarded: 1).count.to_f  / total * 100).round(1),
-      inaccurate: (scored.where(points_awarded: 0).count.to_f  / total * 100).round(1)
+      exact:      (scored.where(season: ::Season.current).where(points_awarded: 3).count.to_f  / total * 100).round(1),
+      correct:    (scored.where(season: ::Season.current).where(points_awarded: 1).count.to_f  / total * 100).round(1),
+      inaccurate: (scored.where(season: ::Season.current).where(points_awarded: 0).count.to_f  / total * 100).round(1)
     }
   end
 
