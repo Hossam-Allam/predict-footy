@@ -11,16 +11,19 @@ class Prediction < ApplicationRecord
   scope :unscored, -> {
     where(points_awarded: nil).order(created_at: :desc)
   }
+
+  CURRENT_SEASON = 2026
+
   def evaluate
     return unless match.status == "FINISHED"
-
+    return unless self.season == CURRENT_SEASON
     new_points = calculate_points
 
     # First evaluation or zero points
     if self.points_awarded.nil? || self.points_awarded == 0
       self.points_awarded = new_points
       save!
-      user.league_memberships.each do |membership|
+      user.league_memberships.where(season: CURRENT_SEASON).each do |membership|
         membership.increment!(:points, new_points)
       end
       # Already evaluated; if points differ, adjust the score and update league membership points accordingly.
@@ -30,7 +33,7 @@ class Prediction < ApplicationRecord
   end
 
   def self.evaluate_all
-    all.find_each(&:evaluate)
+    where(season: CURRENT_SEASON).find_each(&:evaluate)
   end
 
   private
@@ -54,7 +57,7 @@ class Prediction < ApplicationRecord
   # Re-Adjusting the points and update the user's league scores accordingly.
   def reevaluate_prediction!(new_points)
     difference = new_points - self.points_awarded
-    user.league_memberships.each do |membership|
+    user.league_memberships.where(season: CURRENT_SEASON).each do |membership|
       membership.increment!(:points, difference)
     end
     self.points_awarded = new_points
