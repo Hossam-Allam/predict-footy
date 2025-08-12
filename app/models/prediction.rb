@@ -13,7 +13,7 @@ class Prediction < ApplicationRecord
   }
 
   scope :unscored, -> {
-    where(points_awarded: nil).order(created_at: :desc)
+    where(points_awarded: nil).order(created_at: :asc)
   }
 
   def self.stats_for_user(user)
