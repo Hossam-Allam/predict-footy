@@ -17,7 +17,7 @@ class MatchFetcher
       matches = response.parsed_response["matches"]
       matches.each do |m|
         match = Match.find_or_initialize_by(external_id: m["id"])
-        match.season      = Date.parse(m["utcDate"]).year
+        match.season      = ENV["CURRENT_SEASON"].to_i
         match.matchday    = m["matchday"]
         match.scheduled_at = m["utcDate"]
         match.home        = m["homeTeam"]["name"]
