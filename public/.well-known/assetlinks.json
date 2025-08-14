@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.example.predictfooty",
+            "sha256_cert_fingerprints": [
+                "eccbc82aa2fda4105d87380c82a61628ac4d534796e5be1a27110c3968819180"
+            ]
+        }
+    }
+]
