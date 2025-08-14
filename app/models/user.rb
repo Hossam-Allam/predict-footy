@@ -13,7 +13,10 @@ class User < ApplicationRecord
 
   after_create :join_worldwide_league
 
-
+  def generate_auth_token
+    # Use JWT or your preferred token method
+    JWT.encode({ id: id, exp: 1.hour.from_now.to_i }, Rails.application.secret_key_base)
+  end
 
 
   def self.from_omniauth(auth)
