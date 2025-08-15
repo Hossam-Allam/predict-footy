@@ -18,7 +18,7 @@ class Prediction < ApplicationRecord
 
   def self.stats_for_user(user)
     scored = where(user: user).scored
-    total  = scored.count.nonzero? || 1
+    total  = scored.where(season: ::Season.current).count.nonzero? || 1
 
     {
       exact:      (scored.where(season: ::Season.current).where(points_awarded: 3).count.to_f  / total * 100).round(1),
