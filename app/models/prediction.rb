@@ -7,6 +7,7 @@ class Prediction < ApplicationRecord
 
   before_validation :set_default_season, on: :create
 
+  validate :match_must_be_upcoming, on: [ :create, :update ]
 
   scope :scored, -> {
     where.not(points_awarded: nil).order(created_at: :desc)
@@ -50,6 +51,14 @@ class Prediction < ApplicationRecord
   end
 
   private
+
+  def match_must_be_upcoming
+    return if match.blank?
+    # require the match to be "TIMED" (hasn't started)
+    unless match.status == "TIMED"
+      errors.add(:base, "Predictions are closed for this match")
+    end
+  end
 
   # Calculate the points based on current match and prediction data
   def calculate_points
