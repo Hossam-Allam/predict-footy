@@ -6,12 +6,12 @@
 :scheduler:
   :schedule:
     match_fetcher_job:
-      cron: "*/15 * * * *"  # every 15 minutes
+      cron: "*/5 * * * *"  # every 5 minutes
       class: "MatchFetcherWorker"
       queue: default
 
     prediction_evaluation_job:
-      cron: "*/20 * * * *"  # every 20 minutes
+      cron: "*/10 * * * *"  # every 10 minutes
       class: "PredictionEvaluationWorker"
       queue: default
 
