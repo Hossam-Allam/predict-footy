@@ -1,6 +1,6 @@
 module ApplicationHelper
   TEAM_LOGO_MAP = {
-    "Arsenal FC" => "assteta.jpg",
+    "Arsenal FC" => "arsenal.png",
     "Manchester City FC" => "manchester city.png",
     "Manchester United FC" => "manchester united.png",
     "Aston Villa FC" => "aston villa.png",
