@@ -26,6 +26,7 @@
     padding-top: 10px;
 }
 
+
 .footer-link {
     color: white;
     text-decoration: none;
@@ -62,6 +63,14 @@
     text-align: left;
     padding-left: 30px;
     border-left: 1px solid rgb(108, 104, 104);
+}
+
+.footest {
+    text-align: center;
+    color: white;
+    background-color: #1d1d25;
+    padding: 1px;
+    margin: 0px;
 }
 
 /*specific */
