@@ -19,7 +19,7 @@
     bottom: 0;
     
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     gap: 10px;
     margin-top: 20px;
@@ -27,8 +27,13 @@
 }
 
 .footer-link {
-    color: rgb(32, 122, 200);
+    color: white;
     text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    color: aqua;
 }
 
 .f-left, .f-right {
@@ -47,6 +52,16 @@
 .f-paragraph {
     text-align: left;
     font-weight: bold;
+}
+
+.f-right {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+    padding-left: 30px;
+    border-left: 1px solid rgb(108, 104, 104);
 }
 
 /*specific */
