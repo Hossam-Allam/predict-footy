@@ -10,7 +10,6 @@ module ApplicationHelper
     "Everton FC" => "everton.png",
     "West Ham United FC" => "west ham.png",
     "Ipswich Town FC" => "ipswich.png",
-    "Tottenham Hotspur FC" => "tottenham.png",
     "AFC Bournemouth" => "bournemouth.png",
     "Wolverhampton Wanderers FC" => "wolverhampton wanderers.png",
     "Southampton FC" => "southampton.png",
