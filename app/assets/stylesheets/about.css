@@ -13,19 +13,45 @@
 
 /* Footer styles */
 .footer {
-    background-color: #3c3c3d;
+    background-color: #3e3e57;
     padding: 5px;
     text-align: center;
     bottom: 0;
     
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 10px;
     margin-top: 20px;
+    padding-top: 10px;
 }
 
 .footer-link {
     color: rgb(32, 122, 200);
     text-decoration: none;
+}
+
+.f-left, .f-right {
+    margin: 0 10px;
+
+}
+
+.f-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    color: white;
+}
+
+.f-paragraph {
+    text-align: left;
+    font-weight: bold;
+}
+
+/*specific */
+
+h2 {
+    margin: 0px;
+    padding: 0px;
 }
