@@ -86,6 +86,21 @@
         order: -1;
         /* Move date to top on mobile */
     }
+
+    .match.correct {
+    background-color: #b4dbb5;
+
+    }
+
+    .match.close {
+        background-color: #ded8a2;
+
+    }
+
+    .match.incorrect {
+        background-color: #ce928e;
+
+    }
 }
 
 /* predictions */
