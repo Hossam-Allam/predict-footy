@@ -4,20 +4,29 @@ class MatchFetcher
   include HTTParty
   base_uri "api.football-data.org/v4"
 
-  def initialize
-    @headers = {
-      "X-Auth-Token" => ENV["FOOTBALL_API_KEY"]
-    }
+  COMPETITIONS = %w[PL CL].freeze
+
+  def initialize(api_key: ENV["FOOTBALL_API_KEY"], season: ENV["CURRENT_SEASON"])
+    @headers = { "X-Auth-Token" => api_key }
+    @season  = season.to_i
   end
 
   def fetch_matches
-    response = self.class.get("/competitions/PL/matches", headers: @headers)
+    COMPETITIONS.each do |comp|
+      fetch_competition_matches(comp)
+    end
+  end
+
+  private
+
+  def fetch_competition_matches(comp)
+    response = self.class.get("/competitions/#{comp}/matches", headers: @headers)
 
     if response.success?
       matches = response.parsed_response["matches"]
       matches.each do |m|
         match = Match.find_or_initialize_by(external_id: m["id"])
-        match.season      = ENV["CURRENT_SEASON"].to_i
+        match.season      = @season
         match.matchday    = m["matchday"]
         match.scheduled_at = m["utcDate"]
         match.home        = m["homeTeam"]["name"]
