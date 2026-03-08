@@ -8,6 +8,14 @@ class My::LeaguesController < ApplicationController
 
     @memberships_by_league = current_user.league_memberships.where(season: ::Season.current).index_by(&:league_id)
     @league = League.new
+
+    league_ids = @leagues.map(&:id)
+    @ranks_by_league = LeagueMembership.user_ranks_for_leagues(
+      user_id: current_user.id,
+      league_ids: league_ids,
+      season_id: ::Season.current,
+      rank_function: "RANK()"
+    )
   end
 
   def show

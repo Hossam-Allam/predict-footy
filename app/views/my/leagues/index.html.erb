@@ -16,7 +16,13 @@
               <%= membership.points %> points
             <% end %>
           </div>
-          <div class="league-members"><%= league.league_memberships.where(season: ::Season.current).count%> Members</div>
+          <div class="league-members">
+            <% if (rank = @ranks_by_league[league.id]) %>
+              Rank: <%= rank %>
+            <% else %>
+              —
+            <% end %>
+          </div>
         </div>
       <% end %>
     <% end %>
