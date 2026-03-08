@@ -1,7 +1,8 @@
 <%= render "shared/header"%>
-<h1 class="Lindex-title"><%= @league.name %></h1>
+
 
 <%= turbo_frame_tag "leagues_frame" do %>
+  <h1 class="Lindex-title"><%= @league.name %></h1>
   <div class="code" data-controller="clipboard">
     Code: <%= text_field_tag :code, @league.unique_code, readonly: true, id: "code", data: { clipboard_target: "source" }, class: "code-box" %>
     <button data-action="clipboard#copy">
