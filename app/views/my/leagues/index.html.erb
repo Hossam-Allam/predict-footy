@@ -8,18 +8,26 @@
   </div>
   <div class="leagues-container">
     <% unless @leagues.empty? %>
+      <div class="league-header">
+        <div class="league-name"><strong>League Name</strong></div>
+        <div class="league-points"><strong>Points</strong></div>
+        <div class="league-members"><strong>Rank</strong></div>
+      </div>
+
       <% @leagues.each do |league| %>
         <div class="league">
-          <div class="league-name"><%= link_to league.name, my_league_path(league) %></div>
+          <div class="league-name">
+            <%= link_to league.name, my_league_path(league) %>
+          </div>
+          
           <div class="league-points">
             <% if (membership = @memberships_by_league[league.id]) %>
-              <%= membership.points %> points
-            <% end %>
+              <%= membership.points %> <% end %>
           </div>
+
           <div class="league-members">
             <% if (rank = @ranks_by_league[league.id]) %>
-              Rank: <%= rank %>
-            <% else %>
+              <%= rank %> <% else %>
               —
             <% end %>
           </div>
