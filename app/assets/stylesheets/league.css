@@ -23,6 +23,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     padding: 20px;
     color: #555;
+    border-top: 2px solid rgb(170, 110, 110);
 }
 
 .league-name,
