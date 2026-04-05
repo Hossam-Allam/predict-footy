@@ -97,3 +97,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .inaccurate {
   color: rgb(184, 71, 71)
 }
+
+@media (max-width: 600px) {
+  .pred-form{
+    height: 221.2px;
+  }
+}

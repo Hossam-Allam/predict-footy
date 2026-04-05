@@ -80,7 +80,12 @@
         grid-template-columns: 1fr;
         text-align: center;
         gap: 10px;
-        width: 90%;
+        width: 100%;
+        height: auto;
+    }
+
+    .team-logo{
+        margin-bottom: 4px;
     }
 
     .date {
