@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+  border-bottom: 2px solid rgb(126, 124, 124);
 }
 
 .pred-input {
@@ -23,10 +24,11 @@
 }
 
 .pred-btn {
-  padding: 10px;
+  padding: 7px;
   background-color: rgb(181, 184, 220);
   color: white;
   font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .pred-btn:hover {
