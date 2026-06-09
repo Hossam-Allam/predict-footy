@@ -53,6 +53,8 @@ gem "whenever"
 
 gem "sidekiq-scheduler"
 
+gem "rack-attack"
+
 gem "letter_opener", group: :development
 
 group :development, :test do
