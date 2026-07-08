@@ -77,29 +77,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_07_08_000000) do
     t.index ["user_id"], name: "index_predictions_on_user_id"
   end
 
-  create_table "table_prediction_entries", force: :cascade do |t|
-    t.bigint "table_prediction_id", null: false
-    t.bigint "team_id", null: false
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["table_prediction_id"], name: "index_table_prediction_entries_on_table_prediction_id"
-    t.index ["team_id"], name: "index_table_prediction_entries_on_team_id"
-  end
-
-  create_table "table_predictions", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_table_predictions_on_user_id"
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -123,7 +100,4 @@ ActiveRecord::Schema[8.0].define(version: 2026_07_08_000000) do
   add_foreign_key "mobile_auth_handoffs", "users"
   add_foreign_key "predictions", "matches"
   add_foreign_key "predictions", "users"
-  add_foreign_key "table_prediction_entries", "table_predictions"
-  add_foreign_key "table_prediction_entries", "teams"
-  add_foreign_key "table_predictions", "users"
 end
