@@ -7,17 +7,12 @@ class User < ApplicationRecord
   has_many :league_memberships, dependent: :destroy
   has_many :leagues, through: :league_memberships
   has_many :predictions, dependent: :destroy
+  has_many :mobile_auth_handoffs, dependent: :destroy
 
   validates :email, uniqueness: { allow_blank: true }
   validates :name, presence: true
 
   after_create :join_worldwide_league
-
-  def generate_auth_token
-    # Use JWT or your preferred token method
-    JWT.encode({ id: id, exp: 1.hour.from_now.to_i }, Rails.application.secret_key_base)
-  end
-
 
   def self.from_omniauth(auth)
     user = User.find_or_initialize_by(provider: auth.provider, uid: auth.uid)

@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   get "pages/about"
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
+  namespace :mobile do
+    get "auth/github", to: "auth#github"
+    get "auth/complete", to: "auth#complete"
+    get "auth/exchange", to: "auth#exchange"
+  end
+
   namespace :my do
     resources :leagues, only: [ :index, :show, :new, :create ] do
       collection do

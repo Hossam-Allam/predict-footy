@@ -1,0 +1,13 @@
+<h1>Continue with GitHub</h1>
+
+<p>You are being redirected to GitHub to sign in.</p>
+
+<%= button_to "Continue with GitHub",
+              user_github_omniauth_authorize_path(mobile: "1"),
+              method: :post,
+              data: { turbo: false },
+              form: { id: "mobile-github-login" } %>
+
+<script>
+  document.getElementById("mobile-github-login").requestSubmit()
+</script>
