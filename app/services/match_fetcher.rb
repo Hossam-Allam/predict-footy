@@ -4,7 +4,7 @@ class MatchFetcher
   include HTTParty
   base_uri "api.football-data.org/v4"
 
-  COMPETITIONS = %w[PL CL].freeze
+  COMPETITIONS = %w[PL].freeze
 
   def initialize(api_key: ENV["FOOTBALL_API_KEY"], season: ENV["CURRENT_SEASON"])
     @headers = { "X-Auth-Token" => api_key }
