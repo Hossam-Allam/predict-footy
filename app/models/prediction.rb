@@ -12,7 +12,7 @@ class Prediction < ApplicationRecord
     where(points_awarded: nil).order(created_at: :desc)
   }
 
-  CURRENT_SEASON = 2026
+  CURRENT_SEASON = ENV.fetch("CURRENT_SEASON", 2027).to_i
 
   def evaluate
     return unless match.status == "FINISHED"
