@@ -80,3 +80,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+gem "ed25519", ">= 1.4"

@@ -13,6 +13,7 @@ module ApplicationHelper
     "AFC Bournemouth" => "bournemouth.png",
     "Wolverhampton Wanderers FC" => "wolverhampton wanderers.png",
     "Southampton FC" => "southampton.png",
+    "Tottenham Hotspur FC" => "tottenham.png",
     "Brighton & Hove Albion FC" => "brighton.png",
     "Fulham FC" => "fulham.png",
     "Crystal Palace FC" => "crystal palace.png",

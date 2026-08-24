@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :league_memberships, dependent: :destroy
   has_many :leagues, through: :league_memberships
   has_many :predictions, dependent: :destroy
+  has_many :table_predictions, dependent: :destroy
 
   validates :email, uniqueness: { allow_blank: true }
   validates :name, presence: true

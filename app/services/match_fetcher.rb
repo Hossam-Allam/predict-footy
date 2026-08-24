@@ -2,7 +2,7 @@ require "httparty"
 
 class MatchFetcher
   include HTTParty
-  base_uri "api.football-data.org/v4"
+  base_uri "https://api.football-data.org/v4"
 
   def initialize
     @headers = {
@@ -24,6 +24,9 @@ class MatchFetcher
         match.away        = m["awayTeam"]["name"]
         match.home_crest  = m["homeTeam"]["crest"]
         match.away_crest  = m["awayTeam"]["crest"]
+
+        Team.sync(match.home, match.home_crest)
+        Team.sync(match.away, match.away_crest)
 
         if m["status"] == "FINISHED"
           match.home_goals = m["score"]["fullTime"]["home"]

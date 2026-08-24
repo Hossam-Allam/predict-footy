@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   namespace :my do
+    resource :table_prediction, only: [ :show, :create, :update ], path: "table-prediction"
+
     resources :leagues, only: [ :index, :show, :new, :create ] do
       collection do
         post "join", to: "leagues#join", as: :join_league

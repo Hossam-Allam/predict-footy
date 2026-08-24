@@ -1,0 +1,58 @@
+<%= render "shared/header" %>
+
+<section class="table-prediction-page">
+  <div class="table-prediction-intro">
+    <p class="table-prediction-kicker">Season <%= ::Season.current %></p>
+    <h1>Your Final Table Prediction</h1>
+    <% if @locked %>
+      <p>Your prediction is locked and can no longer be edited.</p>
+    <% else %>
+      <p>Drag teams into the order you think the league will finish. Editing closes <%= @table_prediction.lock_at_label %>.</p>
+    <% end %>
+  </div>
+
+  <% if @teams.size != 20 %>
+    <div class="table-prediction-empty">The official 20 teams have not been loaded yet. Try again after the fixtures sync.</div>
+  <% else %>
+    <%= form_with url: my_table_prediction_path, method: @table_prediction.persisted? ? :patch : :post, class: "table-prediction-card", data: { controller: "table-prediction", table_prediction_locked_value: @locked } do %>
+      <% if @table_prediction.errors.any? %>
+        <div class="table-prediction-errors"><%= @table_prediction.errors.full_messages.to_sentence %></div>
+      <% end %>
+
+      <div class="table-prediction-heading">
+        <span>Position</span>
+        <span>Club</span>
+        <span class="table-prediction-drag-label">Move</span>
+      </div>
+
+      <ol class="table-prediction-list" data-table-prediction-target="list">
+        <% @ordered_teams.each_with_index do |team, index| %>
+          <% actual_position = @actual_positions[team.id] %>
+          <% comparison = actual_position ? (index + 1 < actual_position ? "above" : index + 1 > actual_position ? "below" : "exact") : "unknown" %>
+          <li class="table-prediction-team comparison-<%= comparison %>"
+              draggable="<%= !@locked %>"
+              data-table-prediction-target="team"
+              data-team-id="<%= team.id %>"
+              data-team-name="<%= team.name %>"
+              data-action="dragstart->table-prediction#start dragover->table-prediction#move drop->table-prediction#drop dragend->table-prediction#finish keydown->table-prediction#keyMove">
+            <input type="hidden" name="team_ids[]" value="<%= team.id %>" data-table-prediction-target="input">
+            <span class="table-prediction-position" data-table-prediction-target="position"><%= index + 1 %></span>
+            <span class="table-prediction-club">
+              <%= team_logo(team.name, team.crest_url) %>
+              <span><%= team.name.delete_suffix(" FC") %></span>
+              <% if actual_position %><span class="table-prediction-current">Current: <%= actual_position %></span><% end %>
+            </span>
+            <% unless @locked %>
+              <button class="table-prediction-handle" type="button" aria-label="Move <%= team.name %>" title="Drag to reorder; use arrow keys when focused"><span aria-hidden="true">⠿</span></button>
+            <% end %>
+          </li>
+        <% end %>
+      </ol>
+
+      <p class="table-prediction-status" aria-live="polite" data-table-prediction-target="status">
+      <%= @locked ? "Final prediction locked on #{@table_prediction.lock_at_label}." : "Hover over a club to compare it with the current table." %>
+      </p>
+      <% unless @locked %><%= submit_tag "Save prediction", class: "table-prediction-save" %><% end %>
+    <% end %>
+  <% end %>
+</section>
