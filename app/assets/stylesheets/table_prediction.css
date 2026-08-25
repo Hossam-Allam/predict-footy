@@ -16,11 +16,11 @@
 
 .table-prediction-intro p {
   margin: 0;
-  color: #555;
+  color: var(--muted);
 }
 
 .table-prediction-kicker {
-  color: rgb(114, 69, 69) !important;
+  color: var(--primary) !important;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -28,11 +28,11 @@
 }
 
 .table-prediction-card {
-  background: rgba(255, 255, 255, .8);
-  border: 2px solid rgba(126, 124, 124, .45);
-  border-top: 7px solid rgb(151, 133, 133);
-  border-radius: 10px;
-  box-shadow: 0 12px 28px rgba(44, 62, 80, .1);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--primary);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
   overflow: hidden;
 }
 
@@ -45,8 +45,8 @@
 
 .table-prediction-heading {
   padding: 12px 16px;
-  color: #555;
-  background: rgba(44, 62, 80, .06);
+  color: var(--muted);
+  background: color-mix(in srgb, var(--text) 5%, transparent);
   font-size: .77rem;
   font-weight: 700;
   letter-spacing: .04em;
@@ -64,21 +64,21 @@
 .table-prediction-team {
   min-height: 60px;
   padding: 0 16px;
-  border-bottom: 1px solid rgba(126, 124, 124, .32);
-  background: rgba(255, 255, 255, .64);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
   cursor: grab;
   transition: transform 140ms ease, background-color 140ms ease, box-shadow 140ms ease;
 }
 
 .table-prediction-team:last-child { border-bottom: 0; }
-.table-prediction-team:hover { background: antiquewhite; }
+.table-prediction-team:hover { background: var(--surface-raised); }
 .table-prediction-team.comparison-exact:hover { background: #b4dbb5; }
 .table-prediction-team.comparison-above:hover { background: #c9d9ef; }
 .table-prediction-team.comparison-below:hover { background: #f1dfaf; }
 .table-prediction-team.is-dragging { opacity: .45; transform: scale(.985); cursor: grabbing; }
 
 .table-prediction-position {
-  color: #7f8c8d;
+  color: var(--muted);
   font-size: 1.1rem;
   font-weight: 700;
 }
@@ -94,7 +94,7 @@
 
 .table-prediction-current {
   margin-left: auto;
-  color: #555;
+  color: var(--muted);
   font-size: .78rem;
   font-weight: 400;
   opacity: 0;
@@ -112,7 +112,7 @@
   border: 0;
   border-radius: 6px;
   background: transparent;
-  color: #7f8c8d;
+  color: var(--muted);
   cursor: grab;
   font-size: 1.4rem;
   line-height: 1;
@@ -121,7 +121,7 @@
 
 .table-prediction-handle:hover,
 .table-prediction-handle:focus-visible {
-  background: rgb(181, 184, 220);
+  background: var(--primary);
   color: white;
   outline: none;
 }
@@ -130,7 +130,7 @@
   min-height: 20px;
   margin: 0;
   padding: 12px 16px;
-  color: #555;
+  color: var(--muted);
   font-size: .9rem;
   text-align: center;
 }
@@ -141,23 +141,23 @@
   margin: 0 16px 16px;
   padding: 11px;
   border: 0;
-  border-radius: 5px;
-  background: rgb(181, 184, 220);
+  border-radius: 9px;
+  background: var(--primary);
   color: white;
   cursor: pointer;
   font-weight: 700;
 }
 
 .table-prediction-save:hover {
-  background: rgb(147, 151, 188);
+  background: var(--primary-dark);
 }
 
 .table-prediction-empty,
 .table-prediction-errors {
   padding: 16px;
   border-radius: 6px;
-  background: antiquewhite;
-  color: #6b3e3e;
+  background: color-mix(in srgb, var(--accent) 30%, var(--surface));
+  color: var(--text);
   text-align: center;
 }
 

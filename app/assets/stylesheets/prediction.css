@@ -4,7 +4,13 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  border-bottom: 2px solid rgb(170, 110, 110);
+  max-width: 680px;
+  margin: 0 auto 36px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 .pred-input {
@@ -15,7 +21,9 @@
 }
 
 .pred-form .form-control {
-  background-color: rgb(173, 182, 182);
+  background-color: var(--surface-raised);
+  color: var(--text);
+  border: 1px solid var(--line);
   width: 30px;
   height: 40px;
   text-align: center;
@@ -25,14 +33,14 @@
 
 .pred-btn {
   padding: 7px;
-  background-color: rgb(181, 184, 220);
+  background-color: var(--primary);
   color: white;
   font-weight: bold;
   margin-bottom: 8px;
 }
 
 .pred-btn:hover {
-  background-color: rgb(147, 151, 188);
+  background-color: var(--primary-dark);
   cursor: pointer;
 }
 
@@ -56,12 +64,12 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0 0.25rem;
   border-radius: 3px;
   color: white;
-  background-color: #2c3e50;
+  background-color: var(--text);
 }
 
 .score-control button:hover {
   cursor: pointer;
-  background-color: #41607f;
+  background-color: var(--primary);
 }
 
 .form-control {
@@ -84,18 +92,22 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .prediction-stats {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  color: var(--muted);
 }
 
 .exact {
-  color: rgb(63, 157, 63);
+  color: var(--success);
 }
 
 .correct_stat {
-  color: rgb(207, 207, 101);
+  color: var(--accent-ink);
 }
 
 .inaccurate {
-  color: rgb(184, 71, 71)
+  color: var(--primary)
 }
 
 @media (max-width: 600px) {

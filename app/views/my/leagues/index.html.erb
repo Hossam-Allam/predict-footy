@@ -1,4 +1,3 @@
-<%= render "shared/header" %>
 
 
 <%= turbo_frame_tag "leagues_frame" do %>
@@ -16,9 +15,9 @@
       </div>
 
       <% @leagues.each do |league| %>
-        <div class="league">
+        <%= link_to my_league_path(league), class: "league league-card-link" do %>
           <div class="league-name">
-            <%= link_to league.name, my_league_path(league) %>
+            <%= league.name %>
           </div>
           
           <div class="league-points">
@@ -32,7 +31,7 @@
               —
             <% end %>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

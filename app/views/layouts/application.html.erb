@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
   <head>
     <title><%= content_for(:title) || "Footy Predict" %></title>
     <meta name="description" content="Footy Predict lets you predict football match results and compare your accuracy with others. Try it now!">
@@ -22,9 +22,16 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "header", "matches", "prediction", "league", "about", "login", "table_prediction", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script>
+      (function() {
+        var theme = localStorage.getItem("footy-theme");
+        if (theme) document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
 
   <body>
+    <%= render "shared/header" %>
     <main class="main-content">
       <%= yield %>
     </main>

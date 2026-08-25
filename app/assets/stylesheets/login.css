@@ -1,81 +1,119 @@
 .holder {
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
+  width: min(960px, 100% - 40px);
+  min-height: calc(100vh - 180px);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
-.login-signup {
-    background-color: rgb(163, 161, 161);
-    padding: 30px;
-
-    height: auto;
-    min-height: auto;
-
-    border: solid rgb(114, 69, 69) 1px;
-    border-radius: 20px;
+.holder > div:first-child {
+  position: relative;
 }
 
-span.in {
-    color: rgb(114, 69, 69)
+.holder > div:first-child::before {
+  content: "MAKE YOUR PICKS";
+  color: var(--primary);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .16em;
 }
 
-.login-button {
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 5px;
-    margin-top: 5px;
-    border: none;
-    color: white;
-    background-color: rgb(66, 94, 66);
-}
-
-.login-button:hover {
-    background-color: rgb(115, 158, 115);
-    cursor: pointer;
-}
-
-input {
-    border-radius: 3px;
-    padding: 5px;
-    border: none;
-}
-
-.gh {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 15px;
-    background: #7f858b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-family: system-ui;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.gh:hover {
-    background: #2d3339;
+.holder h4 {
+  margin: 12px 0 0;
+  color: var(--muted);
 }
 
 .title {
-    margin-top: 0px;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(3.4rem, 8vw, 5.8rem);
+  line-height: .83;
 }
 
-h4 {
-    margin-bottom: 0px;
+.title i,
+.login-signup h2 i {
+  color: var(--primary);
+  font-style: normal;
 }
 
-.title i {
-    text-decoration: underline;
-    color: rgb(114, 69, 69)
+.login-signup {
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--primary);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
-@media only screen and (max-width: 450px) {
-    .holder {
-        flex-direction: column;
-    }
+.login-signup h2 {
+  margin: 0 0 20px;
+}
+
+.field {
+  margin: 13px 0;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.field input:not([type="checkbox"]) {
+  width: 100%;
+  margin-top: 5px;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  outline: none;
+  color: var(--text);
+  background: var(--surface-raised);
+}
+
+.field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 13%, transparent);
+}
+
+.login-button,
+.gh {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--primary);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+  
+}
+
+.login-button:hover,
+.gh:hover {
+  background: var(--primary-dark);
+}
+
+.login-signup a {
+  color: var(--primary);
+  font-size: .9rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px;
+
+}
+
+@media (max-width: 650px) {
+  .holder {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 42px 0;
+  }
+
+  .holder > div:first-child {
+    text-align: center;
+  }
+
+  .login-signup {
+    padding: 24px;
+  }
 }

@@ -1,18 +1,30 @@
 
-<div class="header">
-  <%= link_to root_path do %>
-    <h3 class="header-brand">Footy<i>Predict</i></h3>
-  <% end %>
-  <div class="header-links">
-    <% if user_signed_in? %>
-      <%= link_to "My Leagues", my_leagues_path, class: "nav-link" %>
-      <%= link_to "Table Prediction", my_table_prediction_path, class: "nav-link" %>
-      <span class="user-name">Hello, <%= current_user.name %></span>
-      <%= link_to "Sign Out", destroy_user_session_path, 
-                  class: "nav-link",
-                  data: { turbo_method: :delete } %>
-    <% else %>
-      <%= link_to "Sign In", new_user_session_path, class: "nav-link"%>
+<header class="site-header">
+  <nav class="header" aria-label="Primary navigation">
+    <%= link_to root_path, class: "header-brand", aria: { label: "Footy Predict home" } do %>
+      <span class="brand-mark" aria-hidden="true">FP</span>
+      <span>Footy<span class="brand-accent">Predict</span></span>
     <% end %>
-  </div>
-</div>
+
+    <div class="header-links header-main-links">
+      <%= link_to "Fixtures", root_path, class: "nav-link" %>
+      <% if user_signed_in? %>
+        <%= link_to "Leagues", my_leagues_path, class: "nav-link" %>
+        <%= link_to "Table Prediction", my_table_prediction_path, class: "nav-link" %>
+      <% end %>
+      <%= link_to "About", about_path, class: "nav-link" %>
+    </div>
+
+    <div class="header-links header-account-links">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch colour theme" title="Switch colour theme">
+        <span class="theme-toggle-icon" aria-hidden="true">☾</span><span class="theme-toggle-label">Dark</span>
+      </button>
+      <% if user_signed_in? %>
+        <span class="user-name">Hi, <%= current_user.name %></span>
+        <%= link_to "Sign out", destroy_user_session_path, class: "nav-link sign-out", data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: "nav-link sign-in" %>
+      <% end %>
+    </div>
+  </nav>
+</header>

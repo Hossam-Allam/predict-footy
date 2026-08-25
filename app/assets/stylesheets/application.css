@@ -1,55 +1,60 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
-@font-face {
-    font-family: "Segoe UI";
-    src: url("/fonts/segoe-ui.ttf") format("truetype");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  --bg:#f7f4ef; --surface:#fff; --surface-raised:#fffdfa; --text:#17261d; --muted:#66746c; --line:#dce3dc; --primary:#db0007; --primary-dark:#ae0006; --accent:#f4d64e; --accent-ink:#554400; --success:#1c8b55; --shadow:0 14px 36px rgba(24,42,31,.09);
 }
 
+:root[data-theme="dark"] {
+  --bg:#050b19; --surface:#0d1a34; --surface-raised:#13254a; --text:#f2f6ff; --muted:#b7c6de; --line:#304b72; --primary:#ed183c; --primary-dark:#ff5570; --accent:#aeb8c8; --accent-ink:#101d32; --success:#77dcad; --shadow:0 18px 40px rgba(0,0,0,.30);
+
+  /* Background pattern controls — tune these three to adjust the weave */
+  --pattern-color: 33, 82, 156;   /* rgb triplet for the pattern lines */
+  --pattern-opacity: .09;          /* raise to .08-.1 if too faint, lower if too loud */
+  --pattern-size: 36px;            /* smaller = tighter weave, larger = looser */
+}
+
+* { box-sizing:border-box; }
+
+html { min-height:100%; background:var(--bg); }
 
 body {
-    min-height: 100vh;
-    background: linear-gradient(120deg, gainsboro, ghostwhite, whitesmoke, lightgray, oldlace) no-repeat center center;
-    color: black;
-    font-family: "Segoe UI", Arial, sans-serif;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+  min-height:100vh;
+  margin:0;
+  color:var(--text);
+  background:radial-gradient(circle at 8% 6%,color-mix(in srgb,var(--accent) 15%,transparent),transparent 28rem),radial-gradient(circle at 95% 17%,color-mix(in srgb,var(--primary) 8%,transparent),transparent 26rem),var(--bg);
+  font-family:"DM Sans","Segoe UI",Arial,sans-serif;
+  display:flex;
+  flex-direction:column;
+  transition:background-color .3s ease,color .3s ease;
 }
 
-.main-content {
-    flex: 1; 
+:root[data-theme="dark"] body {
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(var(--pattern-color), var(--pattern-opacity)) 0 1px,
+      transparent 1px var(--pattern-size)),
+    repeating-linear-gradient(-45deg,
+      rgba(var(--pattern-color), var(--pattern-opacity)) 0 1px,
+      transparent 1px var(--pattern-size)),
+    radial-gradient(circle at 8% 6%, rgba(71,124,231,.08), transparent 28rem),
+    radial-gradient(circle at 95% 17%, rgba(237,24,60,.05), transparent 26rem);
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
 }
 
-/* GitHub-style pagination */
-.pagination {
-    padding: 3px;
-    margin: 3px;
-    text-align: center;
-}
+button,input { font:inherit; }
+a { color:inherit; }
+.main-content { flex:1; min-width:0; }
+h1,h2,h3 { font-family:"Space Grotesk","DM Sans",sans-serif; letter-spacing:-.035em; }
 
-.pagination a,
-.pagination span {
-    padding: 2px 5px;
-    margin: 2px;
-    border: 1px solid #ddd;
-    text-decoration: none;
-}
+.Mindex-title,.Lindex-title { max-width:920px; margin:42px auto 18px; padding:0 20px; text-align:center; font-size:clamp(2rem,4vw,3rem); }
+.Mindex-title::after,.Lindex-title::after { content:""; display:block; width:44px; height:4px; margin:13px auto 0; border-radius:999px; background:var(--primary); }
 
-.pagination .current {
-    background: #6a737d;
-    color: white;
-    border-color: #6a737d;
-}
+.pagination { margin:10px 0 38px; text-align:center; }
+.pagination a,.pagination span { display:inline-grid; min-width:34px; min-height:34px; place-items:center; margin:2px; padding:4px 8px; border:1px solid var(--line); border-radius:9px; background:var(--surface); color:var(--text); text-decoration:none; }
+.pagination .current { border-color:var(--primary); background:var(--primary); color:white; }
+.pagination a:hover { border-color:var(--primary); color:var(--primary); }
 
-.pagination a:hover {
-    background: #f3f4f6;
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; }
 }

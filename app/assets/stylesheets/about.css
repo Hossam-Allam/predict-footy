@@ -1,81 +1,105 @@
 .about {
-    text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+  padding: 8px 28px 30px;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+.about p {
+  margin: 12px 0;
+}
+
+.about strong {
+  color: var(--text);
 }
 
 .about ul {
-    list-style-type: none;
-    padding: 0;
+  display: grid;
+  gap: 8px;
+  margin: 18px 0;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  list-style: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
 }
 
 .sub-header {
-    color: rgb(32, 122, 200);
+  margin: 34px 0 8px;
+  color: var(--primary);
+  font-size: 1.35rem;
 }
 
-/* Footer styles */
 .footer {
-    background-color: #3e3e57;
-    padding: 5px;
-    text-align: center;
-    bottom: 0;
-    
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 20px;
-    padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 42px;
+  margin-top: 30px;
+  padding: 34px max(24px, calc((100% - 1100px) / 2));
+  background: var(--surface);
+  border-top: 1px solid var(--line);
 }
 
-
-.footer-link {
-    color: white;
-    text-decoration: none;
+.f-left,
+.f-right {
+  color: var(--muted);
 }
 
-.footer-link:hover {
-    text-decoration: underline;
-    color: aqua;
-}
-
-.f-left, .f-right {
-    margin: 0 10px;
-
-}
-
-.f-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    color: white;
+.f-left h2,
+.f-right h4 {
+  color: var(--text);
 }
 
 .f-paragraph {
-    text-align: left;
-    font-weight: bold;
+  max-width: 650px;
+  margin-bottom: 0;
+  line-height: 1.55;
 }
 
 .f-right {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: left;
-    padding-left: 30px;
-    border-left: 1px solid rgb(108, 104, 104);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 130px;
+}
+
+.footer-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
 }
 
 .footest {
-    text-align: center;
-    color: white;
-    background-color: #1d1d25;
-    padding: 1px;
-    margin: 0px;
+  padding: 12px 20px;
+  background: #091a2c;
+  color: #dce8ff;
+  text-align: center;
+  font-size: .8rem;
 }
 
-/*specific */
+.footest p {
+  margin: 0;
+}
 
-h2 {
-    margin: 0px;
-    padding: 0px;
+@media (max-width: 600px) {
+  .about {
+    padding: 0 20px 22px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .f-paragraph {
+    text-align: left;
+  }
 }
