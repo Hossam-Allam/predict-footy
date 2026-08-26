@@ -7,7 +7,7 @@
   <%= link_to "Predictions", my_predictions_path, class: "predictions-button" %>
 </div>
 
-<div class="matches-container">
+<div class="matches-container" data-controller="matches-animation">
   <% if params[:match_type] == 'finished' %>
     <%= render partial: "finished_matches", collection: @finished_matches, as: :match %>
   <% elsif @upcoming_matches.empty? %>
