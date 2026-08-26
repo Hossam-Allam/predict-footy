@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_08_03_174550) do
+ActiveRecord::Schema[8.0].define(version: 2026_08_24_110000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -82,6 +82,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_03_174550) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["table_prediction_id", "position"], name: "idx_on_table_prediction_id_position_8bcfb31890", unique: true
+    t.index ["table_prediction_id", "team_id"], name: "idx_on_table_prediction_id_team_id_a3be4495fc", unique: true
     t.index ["table_prediction_id"], name: "index_table_prediction_entries_on_table_prediction_id"
     t.index ["team_id"], name: "index_table_prediction_entries_on_team_id"
   end
@@ -90,6 +92,10 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_03_174550) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "season", default: 2026, null: false
+    t.integer "points"
+    t.datetime "evaluated_at"
+    t.index ["user_id", "season"], name: "index_table_predictions_on_user_id_and_season", unique: true
     t.index ["user_id"], name: "index_table_predictions_on_user_id"
   end
 
@@ -97,6 +103,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_03_174550) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "crest_url"
+    t.index ["name"], name: "index_teams_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   after_action :run_fetch_and_evaluate, if: :should_run_fetch_and_evaluate?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  helper_method :turbo_native_request?
 
   def after_sign_in_path_for(resource)
     session[:ran_fetch_and_evaluate] = false
@@ -11,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(resource)
     root_path
+  end
+
+  def turbo_native_request?
+    request.user_agent.to_s.include?("Turbo Native")
   end
 
   def run_fetch_and_evaluate
