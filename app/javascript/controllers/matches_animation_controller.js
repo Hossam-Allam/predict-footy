@@ -7,10 +7,10 @@ export default class extends Controller {
     console.log("matches-animation connected", this.element.querySelectorAll(".match").length);
     gsap.from(matches, {
         opacity: 0,
-        y: 300,
+        y: 200,
         duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out"
+        stagger: 0.1,
+        ease: "back.out"
     });
   }
 }
