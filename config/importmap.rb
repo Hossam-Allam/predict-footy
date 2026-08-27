@@ -9,4 +9,4 @@ pin "@hotwired/turbo", to: "@hotwired--turbo.js" # @8.0.12
 pin "@rails/actioncable/src", to: "@rails--actioncable--src.js" # @7.2.201
 pin "bootstrap" # @5.3.3
 pin "@popperjs/core", to: "@popperjs--core.js" # @2.11.8
-pin "gsap", to: "https://cdn.jsdelivr.net/npm/gsap@3.15.0/+esm"
+pin "gsap", to: "https://cdn.jsdelivr.net/npm/gsap@3.15.0/+esm", preload: true
