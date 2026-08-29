@@ -59,3 +59,20 @@ body {
 .pagination a:hover {
     background: #f3f4f6;
 }
+
+/*extra */
+
+:root {
+    --bg:#050b19;
+    --surface:#0d1a34;
+    --surface-raised:#13254a; 
+    --text:#f2f6ff; 
+    --muted:#b7c6de; 
+    --line:#304b72; 
+    --primary:#ed183c; 
+    --primary-dark:#ff5570; 
+    --accent:#aeb8c8; 
+    --accent-ink:#101d32; 
+    --success:#77dcad; 
+    --shadow:0 18px 40px rgba(0,0,0,.30);
+}
