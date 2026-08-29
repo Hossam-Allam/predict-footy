@@ -1,27 +1,54 @@
 <header class="site-header">
+
   <nav class="header" aria-label="Primary navigation">
+
     <%= link_to root_path, class: "header-brand", aria: { label: "Footy Predict home" } do %>
+
       <span class="brand-mark" aria-hidden="true">FP</span>
+
       <span>Footy<span class="brand-accent">Predict</span></span>
+
     <% end %>
 
+
+
     <div class="header-nav">
+
       <div class="header-links header-main-links">
+
         <%= link_to "Fixtures", root_path, class: "nav-link" %>
+
         <% if user_signed_in? %>
+
           <%= link_to "Leagues", my_leagues_path, class: "nav-link" %>
+
         <% end %>
+
         <%= link_to "About", about_path, class: "nav-link" %>
+
       </div>
 
+
+
       <div class="header-links header-account-links">
+
         <% if user_signed_in? %>
+
           <span class="user-name">Hi, <%= current_user.name %></span>
+
           <%= link_to "Sign out", destroy_user_session_path, class: "nav-link sign-out", data: { turbo_method: :delete } %>
+
         <% else %>
+
           <%= link_to "Sign in", new_user_session_path, class: "nav-link sign-in" %>
+
         <% end %>
+
       </div>
+
     </div>
+
   </nav>
-</header>
+
+</header> 
+
