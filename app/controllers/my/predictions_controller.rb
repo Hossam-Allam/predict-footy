@@ -7,12 +7,16 @@ class My::PredictionsController < ApplicationController
                                       .scored
                                       .where(season: ::Season.current)
                                       .includes(:match)
+                                      .references(:match)
+                                      .order(match: { scheduled_at: :asc })
                                       .page(params[:page])
                                       .per(10)
     @unscored_predictions = current_user
                                         .predictions
                                         .unscored
                                         .includes(:match)
+                                        .references(:match)
+                                        .order(match: { scheduled_at: :asc })
                                         .page(params[:page])
                                         .per(10)
 
