@@ -8,7 +8,7 @@ class My::PredictionsController < ApplicationController
                                       .where(season: ::Season.current)
                                       .includes(:match)
                                       .references(:match)
-                                      .reorder(match: { scheduled_at: :asc })
+                                      .reorder(match: { scheduled_at: :desc })
                                       .page(params[:page])
                                       .per(10)
     @unscored_predictions = current_user
