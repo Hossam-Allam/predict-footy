@@ -75,16 +75,8 @@ Rails.application.configure do
 
   # SMTP SETUP
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              "smtp.gmail.com",
-    port:                 587,
-    domain:               "localhost",
-    user_name:            "predictfootynotis@gmail.com",
-    password:             ENV["GMAIL_APP_PASSWORD"],
-    authentication:       :login,
-    enable_starttls_auto: true
-  }
+  config.action_mailer.delivery_method = :brevo
+
 
   config.action_mailer.default_url_options = {
   host: "127.0.0.1",

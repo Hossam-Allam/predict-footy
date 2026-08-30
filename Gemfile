@@ -55,6 +55,10 @@ gem "sidekiq-scheduler"
 
 gem "rack-attack"
 
+gem "resend"
+
+gem "sib-api-v3-sdk"
+
 gem "letter_opener", group: :development
 
 group :development, :test do

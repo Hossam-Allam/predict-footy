@@ -122,12 +122,17 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    ethon (0.18.0)
+      ffi (>= 1.15.0)
+      logger
     faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
+    ffi (1.17.4-x64-mingw-ucrt)
+    ffi (1.17.4-x86_64-linux-gnu)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -319,6 +324,9 @@ GEM
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
+    resend (1.13.0)
+      base64
+      httparty (>= 0.22.0)
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -366,6 +374,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sib-api-v3-sdk (9.1.0)
+      addressable (~> 2.3, >= 2.3.0)
+      json (~> 2.1, >= 2.1.0)
+      typhoeus (~> 1.0, >= 1.0.1)
     sidekiq (7.3.9)
       base64
       connection_pool (>= 2.3.0)
@@ -397,6 +409,8 @@ GEM
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    typhoeus (1.6.0)
+      ethon (>= 0.18.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2025.2)
@@ -450,8 +464,10 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-attack
   rails (~> 8.0.1)
+  resend
   rubocop-rails-omakase
   selenium-webdriver
+  sib-api-v3-sdk
   sidekiq-scheduler
   stimulus-rails
   thruster

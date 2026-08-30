@@ -90,16 +90,7 @@ Rails.application.configure do
 
   # Setting up mailer
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              "smtp.gmail.com",
-    port:                 587,
-    domain:               "predict-footy-production.up.railway.app",
-    user_name:            "predictfootynotis@gmail.com",
-    password:             ENV["GMAIL_APP_PASSWORD"],
-    authentication:       :login,
-    enable_starttls_auto: true
-  }
+  config.action_mailer.delivery_method = :brevo
 
   config.action_mailer.default_url_options = {
     host: "predict-footy-production.up.railway.app",
