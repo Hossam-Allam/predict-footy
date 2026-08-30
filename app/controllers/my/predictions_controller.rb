@@ -16,7 +16,7 @@ class My::PredictionsController < ApplicationController
                                         .unscored
                                         .includes(:match)
                                         .references(:match)
-                                        .order(match: { scheduled_at: :asc })
+                                        .order(match: { scheduled_at: :desc })
                                         .page(params[:page])
                                         .per(10)
 
