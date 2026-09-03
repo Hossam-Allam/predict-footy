@@ -6,7 +6,7 @@
       <div class="match">
         <%= team_logo(match.home, match.home_crest) %>
         <h3 class="team"><%= match.home %></h3>
-        <p class="date"><%= match.scheduled_at.strftime("%b %d, %Y") %></p>
+        <%= local_time_tag(match.scheduled_at, class: "date") %>
         <h3 class="team"><%= match.away %></h3>
         <%= team_logo(match.away, match.away_crest) %>
       </div>
@@ -16,7 +16,7 @@
       <%= team_logo(match.home, match.home_crest) %>
       <h3 class="team"><%= match.home %></h3>
       <p class="date">
-        <%= match.scheduled_at.strftime("%b %d, %Y") %><br>
+        <%= local_time_tag(match.scheduled_at, class: "date") %>
         Sign in to predict
       </p>
       <h3 class="team"><%= match.away %></h3>

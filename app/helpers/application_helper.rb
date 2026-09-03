@@ -35,4 +35,8 @@ module ApplicationHelper
       )
     end
   end
+
+  def local_time_tag(time, **options)
+    tag.span("", **options, data: { utc_time: time.iso8601 })
+  end
 end
