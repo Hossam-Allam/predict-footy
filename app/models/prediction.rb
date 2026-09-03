@@ -54,8 +54,8 @@ class Prediction < ApplicationRecord
 
   def match_must_be_upcoming
     return if match.blank?
-    # require the match to be "TIMED" (hasn't started)
-    unless match.status == "TIMED"
+    # require the match to be "TIMED" (hasn't started) & we also check date and time jic now
+    unless match.status == "TIMED" || match.scheduled_at > Time.current - 5.minutes
       errors.add(:base, "Predictions are closed for this match")
     end
   end
