@@ -18,9 +18,13 @@
     <% if @unscored_predictions.any? %>
       <% @unscored_predictions.each do |prediction| %>
         <div class="match">
+          <%= local_time_tag(prediction.match.scheduled_at, class: "date-pred-mob") %>
           <%= team_logo(prediction.match.home, prediction.match.home_crest) %>
           <h3 class="team"><%= prediction.match.home %></h3>
-          <p class="score"><%= prediction.home_score %> - <%= prediction.away_score %></p>
+          <div class="score-date">
+            <%= local_time_tag(prediction.match.scheduled_at, class: "date-pred") %>
+            <p class="score"><%= prediction.home_score %> - <%= prediction.away_score %></p>
+          </div>
           <h3 class="team"><%= prediction.match.away %></h3>
           <%= team_logo(prediction.match.away, prediction.match.away_crest) %>
         </div>

@@ -80,6 +80,16 @@ input[type="number"]::-webkit-outer-spin-button {
   gap: 5px;
 }
 
+.score-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date-pred-mob {
+  display: none;
+}
+
 /*Stats*/
 
 .prediction-stats {
@@ -101,5 +111,13 @@ input[type="number"]::-webkit-outer-spin-button {
 @media (max-width: 600px) {
   .pred-form{
     height: 221.2px;
+  }
+
+  .date-pred{
+    display: none;
+  }
+
+  .date-pred-mob {
+    display: block;
   }
 }
