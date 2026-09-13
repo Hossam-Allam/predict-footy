@@ -108,8 +108,7 @@
     }
 
     .match.close {
-        background-color: #ded8a2;
-
+        border-right: 15px solid #ded8a2;
     }
 
     .match.incorrect {
