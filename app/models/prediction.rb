@@ -4,6 +4,10 @@ class Prediction < ApplicationRecord
 
   validates :match_id, presence: true, uniqueness: { scope: :user_id }
 
+  validate :match_must_be_upcoming, on: [ :create, :update ], if: -> {
+    will_save_change_to_home_score? || will_save_change_to_away_score?
+  }
+
   scope :scored, -> {
     where.not(points_awarded: nil).order(created_at: :desc)
   }
@@ -37,6 +41,14 @@ class Prediction < ApplicationRecord
   end
 
   private
+
+  def match_must_be_upcoming
+    return if match.blank?
+    # require the match to be "TIMED" (hasn't started) & we also check date and time jic now
+    unless match.status == "TIMED" && match.scheduled_at > Time.current - 5.minutes
+      errors.add(:base, "Predictions are closed for this match")
+    end
+  end
 
   # Calculate the points based on current match and prediction data
   def calculate_points
