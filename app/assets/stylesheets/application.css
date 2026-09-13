@@ -16,7 +16,7 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(120deg, gainsboro, ghostwhite, whitesmoke, lightgray, oldlace) no-repeat center center;
+    background: linear-gradient(120deg,gainsboro, ghostwhite, whitesmoke, lightgray, oldlace) no-repeat center center;
     color: black;
     font-family: "Segoe UI", Arial, sans-serif;
     padding: 0;

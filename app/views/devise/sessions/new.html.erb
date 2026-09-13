@@ -1,11 +1,14 @@
-
 <div class="holder">
   <div>
     <h4>Welcome back to,<br></h4>
-    <h1 class="title">Footy<br><i>Predict</i></h1>
+    <div class="login-brand">
+      <span class="brand-mark" aria-hidden="true">FP</span>
+      <h2>Footy<span class="brand-accent">Predict</span></h2>
+    </div>
+
   </div>
   <div class="login-signup">
-    <h2><i>Log <span class="in">in</span></i></h2>
+    <h2>Log <span class="in">in</span></h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />

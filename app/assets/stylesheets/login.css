@@ -7,30 +7,40 @@
     align-items: center;
 }
 
+.login-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    font: 700 1.2rem "Space Grotesk", sans-serif;
+    letter-spacing: -.06em;
+}
+
 .login-signup {
-    background-color: rgb(163, 161, 161);
+    background-color: #ffffff;
     padding: 30px;
 
     height: auto;
     min-height: auto;
 
-    border: solid rgb(114, 69, 69) 1px;
+    border: solid #e2e2e2 1px;
     border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 span.in {
-    color: rgb(114, 69, 69)
+    color: var(--primary);
 }
 
 .login-button {
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 5px;
-    margin-top: 5px;
+    padding: 8px 18px;
+    border-radius: 6px;
+    margin-top: 12px;
     border: none;
     color: white;
     background-color: rgb(66, 94, 66);
+    font-weight: 600;
+    transition: background-color 0.15s ease;
 }
 
 .login-button:hover {
@@ -39,16 +49,46 @@ span.in {
 }
 
 input {
-    border-radius: 3px;
-    padding: 5px;
-    border: none;
+    border-radius: 6px;
+    padding: 8px 10px;
+    border: 1px solid #d5d5d5;
+    background-color: #fafafa;
+    transition: border-color 0.15s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: #ffffff;
+}
+
+.field {
+    margin-bottom: 5px;
+}
+
+.field label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.login-signup a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.15s ease;
+}
+
+.login-signup a:hover {
+    color: rgb(66, 94, 66);
+    text-decoration: underline;
 }
 
 .gh {
     display: inline-flex;
     align-items: center;
     padding: 10px 15px;
-    background: #7f858b;
+    background: #f38686;
     color: white;
     border: none;
     border-radius: 5px;
@@ -58,7 +98,7 @@ input {
 }
 
 .gh:hover {
-    background: #2d3339;
+    background: #ef5c5c;
 }
 
 .title {
