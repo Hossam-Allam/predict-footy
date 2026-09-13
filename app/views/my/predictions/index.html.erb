@@ -55,10 +55,10 @@
 </div>
 
 <div class="pagination">
-  <% if params[:prediction_type] == 'scored' %>
-    <%= paginate @scored_predictions %>
-  <% else %>
+  <% if params[:prediction_type] == 'unscored' %>
     <%= paginate @unscored_predictions %>
+  <% else %>
+    <%= paginate @scored_predictions %>
   <% end %>
 </div>
 
