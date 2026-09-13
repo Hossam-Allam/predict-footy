@@ -104,15 +104,15 @@
     }
 
     .match.correct {
-        border-right: 15px solid #b4dbb5;
+        border-right: 15px solid #92de94;
     }
 
     .match.close {
-        border-right: 15px solid #ded8a2;
+        border-right: 15px solid #f5eb91;
     }
 
     .match.incorrect {
-        border-right: 15px solid #ce928e;
+        border-right: 15px solid #e48680;
 
     }
 }
