@@ -7,7 +7,9 @@ class Prediction < ApplicationRecord
 
   before_validation :set_default_season, on: :create
 
-  validate :match_must_be_upcoming, on: [ :create, :update ]
+  validate :match_must_be_upcoming, on: [ :create, :update ], if: -> {
+    will_save_change_to_home_score? || will_save_change_to_away_score?
+  }
 
   scope :scored, -> {
     where.not(points_awarded: nil).order(created_at: :desc)
