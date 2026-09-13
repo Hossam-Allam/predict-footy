@@ -1,10 +1,9 @@
 <%= render "shared/header" %>
-<h1 class="Mindex-title">Matches</h1>
+<h1 class="Mindex-title">Fixtures</h1>
 
 <div class="match-filter-buttons">
   <%= link_to "Upcoming", root_path(match_type: "upcoming"), class: "upcoming-matches-button" %>
   <%= link_to "Results", root_path(match_type: "finished"), class: "finished-matches-button" %>
-  <%= link_to "Predictions", my_predictions_path, class: "predictions-button" %>
 </div>
 
 <div class="matches-container" data-controller="matches-animation">
