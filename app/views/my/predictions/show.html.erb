@@ -7,13 +7,13 @@
   <p><strong class="inaccurate">Inaccurate:</strong> <%= @stats[:inaccurate] %>%</p>
 </div>
 
-<div class="matches-container">
+<div class="matches-container" data-controller="matches-animation">
     <% if @scored_predictions.any? %>
         <% @scored_predictions.each do |prediction| %>
         <% match_class = case prediction.points_awarded
-                            when 3 then "match correct"
-                            when 1 then "match close"
-                            when 0 then "match incorrect"
+                            when 3 then "match scored correct"
+                            when 1 then "match scored close"
+                            when 0 then "match scored incorrect"
                             else "match"
                         end %>
         <div class="<%= match_class %>">
