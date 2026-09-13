@@ -13,7 +13,7 @@
   <p><strong class="inaccurate">Inaccurate:</strong> <%= @stats[:inaccurate] %>%</p>
 </div>
 
-<div class="matches-container">
+<div class="matches-container" data-controller="matches-animation">
   <% if params[:prediction_type] == 'unscored' %>
     <% if @unscored_predictions.any? %>
       <% @unscored_predictions.each do |prediction| %>
