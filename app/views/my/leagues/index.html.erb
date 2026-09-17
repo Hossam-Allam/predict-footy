@@ -3,9 +3,28 @@
 
 <%= turbo_frame_tag "leagues_frame" do %>
   <h1 class="Lindex-title">My Leagues</h1>
-  <div class="league-form-container">
-    <div class="new-form"><%= render "form", league: League.new %></div>
-    <div class="new-form"><%= render "join_form" %></div>
+  <div class="league-actions">
+    <details class="league-dropdown">
+      <summary class="league-dropdown-toggle">+ League</summary>
+
+      <div class="league-dropdown-panel">
+        <input type="radio" name="league-tab" id="tab-create" class="league-tab-input" checked>
+        <input type="radio" name="league-tab" id="tab-join" class="league-tab-input">
+
+        <div class="league-tabs">
+          <label for="tab-create" class="league-tab-label">Create League</label>
+          <label for="tab-join" class="league-tab-label">Join League</label>
+        </div>
+
+        <div class="league-tab-panel league-tab-panel--create">
+          <%= render "form", league: League.new %>
+        </div>
+
+        <div class="league-tab-panel league-tab-panel--join">
+          <%= render "join_form" %>
+        </div>
+      </div>
+    </details>
   </div>
   <div class="leagues-container">
     <% unless @leagues.empty? %>
