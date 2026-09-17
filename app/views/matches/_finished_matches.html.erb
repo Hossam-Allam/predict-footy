@@ -2,8 +2,8 @@
   <%= team_logo(match.home, match.home_crest) %>
   <h3 class="team"><%= match.home %></h3>
   <p class="date">
-    <%= match.home_goals %> - <%= match.away_goals %><br>
-    <%= match.scheduled_at.strftime("%b %d, %Y") %>
+    <%= local_time_tag(match.scheduled_at, class: "date") %><br>
+    <strong><%= match.home_goals %> - <%= match.away_goals %></strong>
   </p>
   <h3 class="team"><%= match.away %></h3>
   <%= team_logo(match.away, match.away_crest) %>

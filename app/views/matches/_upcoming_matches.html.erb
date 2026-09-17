@@ -15,10 +15,10 @@
     <div class="match disabled">
       <%= team_logo(match.home, match.home_crest) %>
       <h3 class="team"><%= match.home %></h3>
-      <p class="date">
+      <div class="lout-date">
         <%= local_time_tag(match.scheduled_at, class: "date") %>
-        Sign in to predict
-      </p>
+        <p class="notice">Sign in to predict</p>
+      </div>
       <h3 class="team"><%= match.away %></h3>
       <%= team_logo(match.away, match.away_crest) %>
     </div>

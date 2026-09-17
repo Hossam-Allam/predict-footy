@@ -32,6 +32,11 @@
     /* Fixed width for date */
 }
 
+.lout-date {
+    display: flex;
+    flex-direction: column;
+}
+
 .team-logo {
     height: 50px;
     width: 50px;
@@ -76,6 +81,11 @@
     color: inherit;
 }
 
+.notice {
+    font-weight: bold;
+    color: var(--primary)
+}
+
 @media (max-width: 600px) {
     .match {
         box-sizing: border-box;
@@ -98,10 +108,11 @@
         padding: 5px;
     }
 
-    .date {
+    .date, .lout-date {
         order: -1;
         /* Move date to top on mobile */
     }
+
 
     .match.correct {
         border-right: 15px solid #92de94;
