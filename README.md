@@ -13,7 +13,7 @@ A web application where users can predict football match outcomes, compete in le
 - **Scoring System**  
   Earn points for correct predictions (exact score +3, correct outcome +1)
 - **Leaderboards**  
-  Track user rankings within each league
+  Track user rankings and points within each league
 
 ## Technologies 🛠️
 
